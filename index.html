@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇨🇴 Colombia Transfer Out CSAT Analysis | Q1 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nu-purple-dark: #820AD1;
+            --nu-purple: #8A05BE;
+            --nu-purple-light: #A933FF;
+            --nu-purple-lighter: #D9A9FF;
+            --nu-purple-bg: #F5EEFA;
+            --nu-gray-900: #1A1A1A;
+            --nu-gray-800: #2D2D2D;
+            --nu-gray-700: #444444;
+            --nu-gray-600: #666666;
+            --nu-gray-500: #888888;
+            --nu-gray-400: #AAAAAA;
+            --nu-gray-300: #CCCCCC;
+            --nu-gray-200: #E5E5E5;
+            --nu-gray-100: #F5F5F5;
+            --nu-white: #FFFFFF;
+            --nu-success: #00A86B;
+            --nu-warning: #FFB800;
+            --nu-danger: #E53935;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--nu-gray-100);
+            color: var(--nu-gray-800);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--nu-purple-dark);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(130, 10, 209, 0.3);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            color: var(--nu-white);
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-brand span {
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--nu-purple-lighter);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--nu-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--nu-purple-dark) 0%, var(--nu-purple) 50%, var(--nu-purple-light) 100%);
+            color: var(--nu-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .hero-score {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 40px 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-score .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .hero-score .value {
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .hero-score .value span {
+            font-size: 48px;
+        }
+
+        .hero-score .baseline-badge {
+            margin-top: 16px;
+            background: var(--nu-warning);
+            color: var(--nu-gray-900);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 40px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .hero-stat .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--nu-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--nu-gray-900);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--nu-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .question-sample-block {
+            background: var(--nu-gray-200);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--nu-purple);
+        }
+        .question-sample-block .survey-question {
+            font-size: 15px;
+            color: var(--nu-gray-800);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .question-sample-block .sample-number {
+            font-size: 14px;
+            color: var(--nu-gray-600);
+            font-weight: 600;
+        }
+        .question-sample-block .sample-number span { color: var(--nu-purple); }
+
+        .slide-explaining {
+            background: var(--nu-purple-bg);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 24px;
+            border-left: 4px solid var(--nu-purple);
+        }
+        .slide-explaining .slide-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--nu-purple);
+            margin-bottom: 8px;
+        }
+        .slide-explaining .slide-text {
+            font-size: 15px;
+            color: var(--nu-gray-700);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .section-header .tag {
+            display: inline-block;
+            background: var(--nu-purple-bg);
+            color: var(--nu-purple);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        /* Learning Cards - New Design */
+        .learning-card {
+            background: var(--nu-white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid var(--nu-purple);
+        }
+
+        .learning-card.danger {
+            border-left-color: var(--nu-danger);
+        }
+
+        .learning-card.warning {
+            border-left-color: var(--nu-warning);
+        }
+
+        .learning-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--nu-purple);
+            color: var(--nu-white);
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .learning-card.danger .learning-number {
+            background: var(--nu-danger);
+        }
+
+        .learning-card.warning .learning-number {
+            background: var(--nu-warning);
+            color: var(--nu-gray-900);
+        }
+
+        .learning-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--nu-gray-900);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .learning-subtitle {
+            font-size: 18px;
+            color: var(--nu-gray-600);
+            margin-bottom: 24px;
+        }
+
+        .learning-data {
+            background: var(--nu-gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .learning-data-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--nu-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .data-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .data-point {
+            text-align: center;
+        }
+
+        .data-point .value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--nu-purple);
+        }
+
+        .data-point.danger .value {
+            color: var(--nu-danger);
+        }
+
+        .data-point .label {
+            font-size: 13px;
+            color: var(--nu-gray-600);
+        }
+
+        /* Quote Card */
+        .quote-card {
+            background: var(--nu-gray-100);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 12px 0;
+        }
+
+        .quote-card .quote-text {
+            font-size: 16px;
+            font-style: italic;
+            color: var(--nu-gray-800);
+            margin-bottom: 8px;
+        }
+
+        .quote-card .quote-original {
+            font-size: 13px;
+            color: var(--nu-gray-400);
+            font-style: italic;
+        }
+
+        .quote-card .quote-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--nu-purple-bg);
+            color: var(--nu-purple);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .quote-card .quote-rating.negative {
+            background: #FFEBEE;
+            color: var(--nu-danger);
+        }
+
+        /* Verbatim Grid */
+        .verbatim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        /* Insight Box */
+        .insight-box {
+            background: linear-gradient(135deg, var(--nu-purple-bg), #FFF);
+            border-left: 4px solid var(--nu-purple);
+            border-radius: 0 12px 12px 0;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .insight-box.warning {
+            background: linear-gradient(135deg, #FFF5E5, #FFF);
+            border-left-color: var(--nu-warning);
+        }
+
+        .insight-box.danger {
+            background: linear-gradient(135deg, #FFEBEE, #FFF);
+            border-left-color: var(--nu-danger);
+        }
+
+        .insight-box .insight-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--nu-gray-900);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .insight-box .insight-content {
+            font-size: 15px;
+            color: var(--nu-gray-700);
+        }
+
+        /* BR/MX Section */
+        .geo-learnings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .geo-card {
+            background: var(--nu-white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .geo-card .geo-flag {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .geo-card h3 {
+            font-size: 20px;
+            color: var(--nu-gray-900);
+            margin-bottom: 16px;
+        }
+
+        .geo-learning-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--nu-gray-200);
+        }
+
+        .geo-learning-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .geo-learning-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--nu-purple-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .geo-learning-content h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--nu-gray-900);
+            margin-bottom: 4px;
+        }
+
+        .geo-learning-content p {
+            font-size: 13px;
+            color: var(--nu-gray-600);
+        }
+
+        .applicability-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .applicability-badge.high {
+            background: #E8F5E9;
+            color: var(--nu-success);
+        }
+
+        .applicability-badge.medium {
+            background: #FFF5E5;
+            color: #D97706;
+        }
+
+        /* Detractors Section */
+        .promoter-highlight {
+            background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 24px;
+            border: 1px solid rgba(0, 168, 107, 0.25);
+        }
+        .promoter-highlight .big-number {
+            font-size: 120px;
+            font-weight: 700;
+            color: var(--nu-success);
+            line-height: 1;
+        }
+        .promoter-highlight .big-label {
+            font-size: 24px;
+            color: var(--nu-gray-700);
+            margin-top: 12px;
+        }
+        .promoter-highlight .context {
+            font-size: 16px;
+            color: var(--nu-gray-500);
+            margin-top: 8px;
+        }
+        .disclaimer-banner {
+            background: linear-gradient(135deg, #E8F5E9, #FFF);
+            border: 1px solid var(--nu-success);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+        .disclaimer-banner .disclaimer-icon { font-size: 24px; }
+        .disclaimer-banner .disclaimer-content h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 6px;
+        }
+        .disclaimer-banner .disclaimer-content p {
+            font-size: 14px;
+            color: var(--nu-gray-700);
+            line-height: 1.5;
+        }
+
+        .detractor-highlight {
+            background: linear-gradient(135deg, #FFEBEE, #FFF5F5);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .detractor-highlight .big-number {
+            font-size: 120px;
+            font-weight: 700;
+            color: var(--nu-danger);
+            line-height: 1;
+        }
+
+        .detractor-highlight .big-label {
+            font-size: 24px;
+            color: var(--nu-gray-700);
+            margin-top: 16px;
+        }
+
+        .detractor-highlight .context {
+            font-size: 16px;
+            color: var(--nu-gray-500);
+            margin-top: 8px;
+        }
+
+        /* Pain Category Cards */
+        .pain-category {
+            background: var(--nu-white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .pain-category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--nu-gray-200);
+        }
+
+        .pain-category-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .pain-icon {
+            width: 56px;
+            height: 56px;
+            background: #FFEBEE;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .pain-category-title h3 {
+            font-size: 22px;
+            color: var(--nu-gray-900);
+        }
+
+        .pain-category-title .pain-subtitle {
+            font-size: 14px;
+            color: var(--nu-gray-500);
+        }
+
+        .pain-percentage {
+            background: #FFEBEE;
+            color: var(--nu-danger);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .pain-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .pain-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pain-description h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--nu-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .pain-description p {
+            font-size: 15px;
+            color: var(--nu-gray-700);
+            line-height: 1.7;
+        }
+
+        .pain-quotes h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--nu-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        /* UX Issue Card */
+        .ux-issue-card {
+            background: var(--nu-gray-100);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .ux-issue-card .issue-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--nu-gray-800);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ux-issue-card .issue-description {
+            font-size: 14px;
+            color: var(--nu-gray-600);
+        }
+
+        /* Distribution Bar */
+        .distribution-mini {
+            background: var(--nu-gray-200);
+            border-radius: 8px;
+            height: 12px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .distribution-mini .fill {
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* Metrics Row */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .metric-mini {
+            text-align: center;
+            padding: 16px;
+            background: var(--nu-gray-100);
+            border-radius: 12px;
+        }
+
+        .metric-mini .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--nu-gray-900);
+        }
+
+        .metric-mini .label {
+            font-size: 12px;
+            color: var(--nu-gray-500);
+            text-transform: uppercase;
+        }
+
+        /* Verbatim by topic with examples */
+        .verbatim-by-topic {
+            margin-top: 20px;
+        }
+        .verbatim-topic-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 24px;
+            align-items: start;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--nu-gray-200);
+        }
+        .verbatim-topic-row:last-child { border-bottom: none; }
+        .verbatim-topic-meta {
+            flex-shrink: 0;
+        }
+        .verbatim-topic-meta .value { font-size: 22px; font-weight: 700; }
+        .verbatim-topic-meta .label { font-size: 11px; color: var(--nu-gray-500); text-transform: uppercase; margin-top: 2px; }
+        .verbatim-topic-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .verbatim-topic-examples .example {
+            font-size: 13px;
+            color: var(--nu-gray-700);
+            line-height: 1.4;
+            padding: 8px 12px;
+            background: var(--nu-gray-100);
+            border-radius: 8px;
+            border-left: 3px solid var(--nu-gray-300);
+        }
+        .verbatim-topic-row.positive .verbatim-topic-meta .value { color: var(--nu-purple); }
+        .verbatim-topic-row.positive .example { border-left-color: var(--nu-purple); }
+        .verbatim-topic-row.improvement .verbatim-topic-meta .value { color: var(--nu-purple-light); }
+        .verbatim-topic-row.improvement .example { border-left-color: var(--nu-purple-light); }
+        .verbatim-topic-row.neutral .verbatim-topic-meta .value { color: var(--nu-gray-600); }
+        .verbatim-topic-row.negative .verbatim-topic-meta .value { color: var(--nu-danger); }
+        .verbatim-topic-row.negative .example { border-left-color: var(--nu-danger); }
+        .verbatim-topic-row.no-sense .verbatim-topic-meta .value { color: var(--nu-gray-400); }
+        @media (max-width: 640px) {
+            .verbatim-topic-row { grid-template-columns: 1fr; }
+        }
+
+        /* CSAT Overview */
+        .csat-overview {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .csat-overview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .csat-donut {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .csat-donut svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .csat-donut circle {
+            fill: none;
+            stroke-width: 24;
+        }
+
+        .csat-donut .donut-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .csat-donut .donut-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--nu-gray-900);
+        }
+
+        .csat-donut .donut-label {
+            font-size: 12px;
+            color: var(--nu-gray-500);
+        }
+
+        .rating-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rating-label {
+            width: 70px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--nu-gray-700);
+        }
+
+        .rating-bar {
+            flex: 1;
+            height: 32px;
+            background: var(--nu-gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--nu-white);
+        }
+
+        .rating-fill.r5 { background: var(--nu-purple); }
+        .rating-fill.r4 { background: var(--nu-purple-light); }
+        .rating-fill.r3 { background: var(--nu-gray-500); }
+        .rating-fill.r2 { background: var(--nu-warning); color: var(--nu-gray-900); }
+        .rating-fill.r1 { background: var(--nu-danger); }
+
+        .rating-value {
+            width: 50px;
+            font-size: 14px;
+            color: var(--nu-gray-600);
+            text-align: right;
+        }
+
+        /* Recommendations */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .recommendation-card {
+            background: var(--nu-white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .recommendation-card .rec-priority {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .recommendation-card .rec-priority.high {
+            background: #FFEBEE;
+            color: var(--nu-danger);
+        }
+
+        .recommendation-card .rec-priority.medium {
+            background: #FFF5E5;
+            color: #D97706;
+        }
+
+        .recommendation-card .rec-priority.low {
+            background: var(--nu-purple-bg);
+            color: var(--nu-purple);
+        }
+
+        .recommendation-card h4 {
+            font-size: 18px;
+            color: var(--nu-gray-900);
+            margin-bottom: 12px;
+        }
+
+        .recommendation-card p {
+            font-size: 14px;
+            color: var(--nu-gray-600);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--nu-gray-900);
+            color: var(--nu-gray-400);
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        footer .footer-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--nu-white);
+            margin-bottom: 16px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--nu-white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h4 {
+            font-size: 16px;
+            color: var(--nu-gray-900);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--nu-gray-600);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero-score .value {
+                font-size: 64px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .learning-title {
+                font-size: 22px;
+            }
+
+            .promoter-highlight .big-number { font-size: 80px; }
+            .detractor-highlight .big-number {
+                font-size: 80px;
+            }
+        }
+
+        /* Vertical Bar Chart */
+        .vertical-chart-container {
+            padding: 24px 0;
+        }
+
+        .vertical-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 300px;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--nu-gray-200);
+            position: relative;
+        }
+
+        .vertical-chart::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                180deg,
+                var(--nu-gray-100) 0px,
+                var(--nu-gray-100) 1px,
+                transparent 1px,
+                transparent 60px
+            );
+            pointer-events: none;
+        }
+
+        .chart-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            max-width: 120px;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 250px;
+        }
+
+        .chart-bar {
+            width: 24px;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chart-bar:hover {
+            opacity: 0.8;
+            transform: scaleY(1.02);
+        }
+
+        .chart-bar.positive { background: var(--nu-purple); }
+        .chart-bar.improvement { background: var(--nu-purple-light); }
+        .chart-bar.neutral { background: var(--nu-gray-400); }
+        .chart-bar.negative { background: var(--nu-danger); }
+
+        .chart-bar .bar-value {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--nu-gray-700);
+            white-space: nowrap;
+        }
+
+        .chart-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--nu-gray-700);
+            margin-top: 12px;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--nu-gray-600);
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .legend-color.positive { background: var(--nu-purple); }
+        .legend-color.improvement { background: var(--nu-purple-light); }
+        .legend-color.neutral { background: var(--nu-gray-400); }
+        .legend-color.negative { background: var(--nu-danger); }
+
+        .y-axis {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 8px;
+            font-size: 11px;
+            color: var(--nu-gray-500);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(135deg, #FFEBEE, #FFF);
+            border: 1px solid var(--nu-danger);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .alert-banner .alert-icon {
+            font-size: 32px;
+        }
+
+        .alert-banner .alert-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--nu-danger);
+            margin-bottom: 4px;
+        }
+
+        .alert-banner .alert-content p {
+            font-size: 14px;
+            color: var(--nu-gray-700);
+        }
+
+        /* Context Card */
+        .context-card {
+            background: linear-gradient(135deg, var(--nu-purple-dark), var(--nu-purple));
+            color: var(--nu-white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .context-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .context-card p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+        }
+
+        .comparison-table th {
+            background: var(--nu-gray-100);
+            padding: 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--nu-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--nu-gray-200);
+            font-size: 14px;
+            color: var(--nu-gray-700);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .examples-cell {
+            max-width: 320px;
+            vertical-align: top;
+        }
+        .comparison-table .verbatim-example {
+            font-size: 12px;
+            color: var(--nu-gray-700);
+            line-height: 1.4;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--nu-gray-200);
+        }
+        .comparison-table .verbatim-example:last-child {
+            border-bottom: none;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .status-indicator .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-indicator.success .dot { background: var(--nu-success); }
+        .status-indicator.warning .dot { background: var(--nu-warning); }
+        .status-indicator.danger .dot { background: var(--nu-danger); }
+        .status-indicator.success { color: var(--nu-success); }
+        .status-indicator.warning { color: #D97706; }
+        .status-indicator.danger { color: var(--nu-danger); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-brand">
+                <span>🇨🇴</span>
+                CSAT Analysis | Transfer Out
+            </div>
+            <div class="nav-links">
+                <a href="#learnings">Key Learnings</a>
+                <a href="#br-mx">BR & MX Insights</a>
+                <a href="#detractors">Detractors</a>
+                <a href="#data">The Data</a>
+                <a href="#recommendations">Recommendations</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Colombia Transfer Out (Bre-B) CSAT</h1>
+            <p class="subtitle">Qualitative Deep Dive | January 2026 | GBA Research</p>
+            <div class="question-sample-block" style="background: rgba(255,255,255,0.2); border-left-color: var(--nu-white); max-width: 700px; margin-left: auto; margin-right: auto;">
+                <div class="survey-question" style="color: var(--nu-white); font-style: normal;">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number" style="color: var(--nu-white);">Sample: <span>n = 3,932</span></div>
+            </div>
+            <div class="hero-score">
+                <div class="label">Overall CSAT Score</div>
+                <div class="value">71.8<span>%</span></div>
+                <div class="baseline-badge">⚡ First Wave - Baseline</div>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="stat-value">3,932</div>
+                    <div class="stat-label">Responses</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value" style="color: #FFD700;">71.8%</div>
+                    <div class="stat-label">Satisfied (4-5)</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value" style="color: #FF6B6B;">25.3%</div>
+                    <div class="stat-label">Detractors (1-2)</div>
+                </div>
+            </div>
+            <div class="slide-explaining" style="background: rgba(255,255,255,0.2); border-left-color: var(--nu-white); max-width: 700px; margin: 32px auto 0;">
+                <div class="slide-label" style="color: var(--nu-white);">Slide 1 — What to say</div>
+                <div class="slide-text" style="color: var(--nu-white); font-style: normal;">This is the first wave of Colombia Transfer Out CSAT. We have almost 4,000 responses from January 2026. The overall score is 71.8%, with 71.8% satisfied (Alta + Muy alta satisfacción) and 25.3% detractors (Muy baja + Baja satisfacción). This slide sets the baseline we'll use to track improvement in future waves.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Learnings Section -->
+    <section id="learnings">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Key Learnings</span>
+                <h2>What We Learned from Colombia Users</h2>
+                <p>Critical insights from 3,932 responses, with data to support each finding</p>
+            </div>
+            <div class="question-sample-block">
+                <div class="survey-question">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number">Sample: <span>n = 3,932</span></div>
+            </div>
+            <div class="slide-explaining">
+                <div class="slide-label">Slides 2–5 — What to say</div>
+                <div class="slide-text">Four findings summarize the story: speed equals trust, instability destroys it, 4x1000 is a unique friction, and small UX fixes can have big impact. We analyzed 2,439 verbatims (62% response rate). Understanding what users write at each satisfaction level helps us prioritize: Muy baja satisfacción with negative sentiment needs root-cause fixes; Alta satisfacción with improvement requests points to quick UX wins.</div>
+            </div>
+
+            <!-- Learning 1: Instability -->
+            <div class="learning-card danger">
+                <div class="learning-number">1</div>
+                <h2 class="learning-title">When Transfers Fail, Trust Collapses Immediately</h2>
+                <p class="learning-subtitle">Users don't tolerate uncertainty. A single failed transfer can turn a promoter into a detractor.</p>
+                
+                <div class="learning-data">
+                    <div class="learning-data-title">📊 The Data Behind This Learning</div>
+                    <div class="data-points">
+                        <div class="data-point danger">
+                            <div class="value">38.8%</div>
+                            <div class="label">of negative verbatims mention instability or failures</div>
+                        </div>
+                        <div class="data-point danger">
+                            <div class="value">24.1%</div>
+                            <div class="label">gave Muy baja satisfacción (unusually high)</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="value">22.5%</div>
+                            <div class="label">Bre-B success rate during Dec incident</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert-banner" style="margin-top: 20px;">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <h4>Contexto: incidente crítico em dezembro 2025</h4>
+                        <p>A pesquisa foi aplicada em <strong>janeiro 2026</strong>, logo após incidentes graves no Bre-B. Em <strong>dezembro</strong>, a taxa de sucesso caiu para <strong>22,5%</strong> (IRC-21071) e houve <strong>outage do Nequi</strong> impactando transferências (IRC-21141). Parte dos <strong>24,1% de Muy baja satisfacción</strong> provavelmente reflete usuários que vivenciaram essas falhas — por isso é importante ler o número como baseline pós-incidente e priorizar estabilidade para as próximas ondas.</p>
+                    </div>
+                </div>
+
+                <div class="verbatim-grid">
+                    <div class="quote-card">
+                        <div class="quote-text">"I've tried more than 5 times to transfer money from my account to Bold and I can't"</div>
+                        <div class="quote-original">"he intentado mas de 5 veces trasladar plata de mi cuenta a Bold y no puedo"</div>
+                        <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"Sometimes the app fails when sending via Bre-B"</div>
+                        <div class="quote-original">"a veces la app falla en los envíos por Bre-B"</div>
+                        <div class="quote-rating negative">⭐ Muy alta satisfacción (still concerned)</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"As long as the platform doesn't crash, everything works as it should"</div>
+                        <div class="quote-original">"mientras no se caiga la plataforma todo marcha como debe ser"</div>
+                        <div class="quote-rating negative">⭐ Indiferente</div>
+                    </div>
+                </div>
+
+                <div class="insight-box danger">
+                    <div class="insight-title">🎯 UX Implication</div>
+                    <div class="insight-content">The bimodal distribution (54% Muy alta satisfacción, 24% Muy baja satisfacción) shows an "all or nothing" experience. When Bre-B works, users love it. When it fails, they feel abandoned. There's no middle ground — <strong>reliability IS the product</strong>.</div>
+                </div>
+                <div class="slide-explaining">
+                    <div class="slide-label">Slide 6 — What to say</div>
+                    <div class="slide-text">When transfers fail or the system is unstable, users don't tolerate uncertainty. A single bad experience can turn a promoter into a detractor. In the data, 38.8% of negative verbatims mention instability or failures, and 24.1% gave Muy baja satisfacción — unusually high. During the December incident, Bre-B success rate dropped to 22.5%. So reliability isn't just one factor — it's the foundation: when it breaks, satisfaction collapses.</div>
+                </div>
+            </div>
+
+            <!-- Learning 2: Error Recovery -->
+            <div class="learning-card danger">
+                <div class="learning-number">2</div>
+                <h2 class="learning-title">Users Feel Abandoned When Errors Occur</h2>
+                <p class="learning-subtitle">Generic error messages create anxiety. Users don't know what went wrong or what to do next.</p>
+                
+                <div class="learning-data">
+                    <div class="learning-data-title">📊 The Data Behind This Learning</div>
+                    <div class="data-points">
+                        <div class="data-point danger">
+                            <div class="value">17.2%</div>
+                            <div class="label">of negative verbatims cite "transfer failure"</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="value">0</div>
+                            <div class="label">verbatims mention clear error guidance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verbatim-grid">
+                    <div class="quote-card">
+                        <div class="quote-text">"There's a persistent block on my Nu account against my Nequi account and they don't give me a solution"</div>
+                        <div class="quote-original">"persiste un bloqueo en mi cuenta de Nu contra mi cuenta de Nequi y no me dan solución"</div>
+                        <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"Sometimes I get lost on the first screen, I don't know where I have the account registered"</div>
+                        <div class="quote-original">"a veces me pierdo en la primera pantalla, no sé dónde tengo inscrita la cuenta"</div>
+                        <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                    </div>
+                </div>
+
+                <div class="ux-issue-card">
+                    <div class="issue-title">🔴 UX Gap Identified</div>
+                    <div class="issue-description">When transfers fail, users receive error messages like "La cuenta receptor no cumple con las validaciones requeridas" without context on what to do. They're left guessing, retrying, and eventually giving up or contacting support frustrated.</div>
+                </div>
+                <div class="slide-explaining">
+                    <div class="slide-label">Slide 6 (continued) — What to say</div>
+                    <div class="slide-text">Users feel abandoned when errors occur — they don't know what went wrong or what to do next. Generic error messages create anxiety. Improving error communication and providing self-service recovery could significantly reduce detractor volume.</div>
+                </div>
+            </div>
+
+            <!-- Learning 3: 4x1000 -->
+            <div class="learning-card warning">
+                <div class="learning-number">3</div>
+                <h2 class="learning-title">The 4x1000 Tax Creates "Surprise" Friction</h2>
+                <p class="learning-subtitle">Colombia's unique transaction tax generates frustration because users lack visibility and control.</p>
+                
+                <div class="learning-data">
+                    <div class="learning-data-title">📊 The Data Behind This Learning</div>
+                    <div class="data-points">
+                        <div class="data-point">
+                            <div class="value">~107</div>
+                            <div class="label">verbatims mention 4x1000</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="value">4.5%</div>
+                            <div class="label">of all improvement requests</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verbatim-grid">
+                    <div class="quote-card">
+                        <div class="quote-text">"I'd like to know how much I've sent this month to know when I'll reach the 4x1000 monthly cap"</div>
+                        <div class="quote-original">"quisiera poder conocer en mi cuenta cuanto he enviado en el mes para saber cuando llegaré al tope de 4x1000 mensual"</div>
+                        <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"Between accounts of the same person, 4x1000 shouldn't be charged — why are you charging it?"</div>
+                        <div class="quote-original">"se supone que entre cuentas de la misma persona no se cobra el 4x1000, por qué lo están cobrando?"</div>
+                        <div class="quote-rating negative">⭐ Alta satisfacción</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"The receipt I want to share shouldn't include the 4x1000 amount"</div>
+                        <div class="quote-original">"el comprobante que se quiere compartir no debería incluir el valor del 4x1000"</div>
+                        <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                    </div>
+                </div>
+
+                <div class="insight-box warning">
+                    <div class="insight-title">💡 Competitive Opportunity</div>
+                    <div class="insight-content">No major bank in Colombia provides real-time visibility of accumulated 4x1000. Building this tracker could be a <strong>significant differentiator</strong> — turning a regulatory pain point into a trust-building feature.</div>
+                </div>
+                <div class="slide-explaining">
+                    <div class="slide-label">Slide 7 — What to say</div>
+                    <div class="slide-text">4x1000 is unique to Colombia. Users get frustrated because they don't see how much they've paid or how close they are to the monthly cap. We see around 107 verbatims about 4x1000 — about 4.5% of improvement requests. No major bank in Colombia offers a real-time tracker today, so building one could be a strong differentiator and turn a regulatory pain into trust.</div>
+                </div>
+            </div>
+
+            <!-- Learning 4: Speed = Trust -->
+            <div class="learning-card">
+                <div class="learning-number">4</div>
+                <h2 class="learning-title">Speed is the #1 Driver of Trust and Satisfaction</h2>
+                <p class="learning-subtitle">When transfers are instant, users feel confident. Any delay creates doubt about whether it worked.</p>
+                
+                <div class="learning-data">
+                    <div class="learning-data-title">📊 The Data Behind This Learning</div>
+                    <div class="data-points">
+                        <div class="data-point">
+                            <div class="value">53.9%</div>
+                            <div class="label">gave Muy alta satisfacción (very satisfied)</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="value">11.6%</div>
+                            <div class="label">of positive verbatims mention "efficiency"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verbatim-grid">
+                    <div class="quote-card">
+                        <div class="quote-text">"Honestly 10/10 for Bre-B"</div>
+                        <div class="quote-original">"la verdad 10/10 el bre-b"</div>
+                        <div class="quote-rating">⭐ Muy alta satisfacción</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"Fast and simple process"</div>
+                        <div class="quote-original">"Proceso rápido y sencillo"</div>
+                        <div class="quote-rating">⭐ Muy alta satisfacción</div>
+                    </div>
+                    <div class="quote-card">
+                        <div class="quote-text">"Everything is easy, fast, and efficient"</div>
+                        <div class="quote-original">"todo es fácil, rápido y eficiente"</div>
+                        <div class="quote-rating">⭐ Muy alta satisfacción</div>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <div class="insight-title">✅ What's Working</div>
+                    <div class="insight-content">When Bre-B works as intended, users describe it as "instant," "agile," and "reliable." The core transfer experience is solid — the challenge is <strong>maintaining consistency</strong> and handling edge cases gracefully.</div>
+                </div>
+                <div class="slide-explaining">
+                    <div class="slide-label">Slide 8 — What to say</div>
+                    <div class="slide-text">When transfers are instant, users feel confident. Efficiency is the number-one driver of trust. So the core experience — when it works — is already strong. The challenge is keeping it consistent and fixing what happens when it doesn't work.</div>
+                </div>
+            </div>
+
+            <!-- Learning 5: Post-Transfer UX -->
+            <div class="learning-card">
+                <div class="learning-number">5</div>
+                <h2 class="learning-title">Small UX Frictions Accumulate Into Frustration</h2>
+                <p class="learning-subtitle">Users notice when flows aren't optimized, even if they complete successfully.</p>
+                
+                <div class="learning-data">
+                    <div class="learning-data-title">📊 The Data Behind This Learning</div>
+                    <div class="data-points">
+                        <div class="data-point">
+                            <div class="value">195</div>
+                            <div class="label">verbatims ask to "simplify the process"</div>
+                        </div>
+                        <div class="data-point">
+                            <div class="value">8.2%</div>
+                            <div class="label">of all improvement requests</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="ux-issue-card">
+                        <div class="issue-title">🔙 Post-Transfer Navigation</div>
+                        <div class="issue-description">"When I finish a transfer and I'm at the receipt, I have to go back through ALL the steps to get home."</div>
+                    </div>
+                    <div class="ux-issue-card">
+                        <div class="issue-title">🔑 Keys Management</div>
+                        <div class="issue-description">"I can't edit or delete saved keys. I don't know which bank a key belongs to until the end."</div>
+                    </div>
+                    <div class="ux-issue-card">
+                        <div class="issue-title">🔐 Confirmation Friction</div>
+                        <div class="issue-description">"Do I need to enter my password for EVERY transfer? I already registered with Face ID."</div>
+                    </div>
+                    <div class="ux-issue-card">
+                        <div class="issue-title">📱 QR from Gallery</div>
+                        <div class="issue-description">"I want to scan QR codes from photos saved in my phone gallery, not just live camera."</div>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <div class="insight-title">🎯 Quick Wins Available</div>
+                    <div class="insight-content">Many of these UX issues are <strong>low-effort, high-impact fixes</strong>: add a "Go to Home" button after receipt, show bank name when selecting a key, allow Face ID for confirmation. These improvements can move Alta satisfacción → Muy alta satisfacción.</div>
+                </div>
+                <div class="slide-explaining">
+                    <div class="slide-label">Slide 9 — What to say</div>
+                    <div class="slide-text">From the user's point of view, several small frictions add up: Navigation — after the receipt, they have to go back through every step to get home. Keys — they can't edit or delete saved keys, and bank names appear only at the end. Auth — they're asked for password even when they use Face ID. QR — some want to scan from gallery, not only live camera. These are mostly low-effort, high-impact fixes.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BR & MX Learnings Section -->
+    <section id="br-mx" style="background: var(--nu-white);">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Cross-Geo Insights</span>
+                <h2>Learnings from Brazil & Mexico to Apply in Colombia</h2>
+                <p>Patterns and best practices from more mature markets</p>
+            </div>
+            <div class="question-sample-block">
+                <div class="survey-question">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number">Sample: <span>n = 3,932</span></div>
+            </div>
+            <div class="slide-explaining">
+                <div class="slide-label">Slide 13 — What to say</div>
+                <div class="slide-text">Across Brazil, Mexico, and Colombia we see the same patterns: speed equals trust, instability destroys it, and error handling is a major gap. Colombia adds a specific factor — 4x1000 — which is both a challenge and an opportunity to differentiate with visibility and control.</div>
+            </div>
+
+            <div class="geo-learnings">
+                <!-- Brazil Card -->
+                <div class="geo-card">
+                    <div class="geo-flag">🇧🇷</div>
+                    <h3>Brazil (Pix) Learnings</h3>
+                    
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">⚡</div>
+                        <div class="geo-learning-content">
+                            <h4>Speed = Trust Pattern Confirmed</h4>
+                            <p>90%+ CSAT in Brazil driven by instant confirmation. Same pattern seen in CO — when it works, users love it.</p>
+                            <span class="applicability-badge high">Highly Applicable</span>
+                        </div>
+                    </div>
+
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">📋</div>
+                        <div class="geo-learning-content">
+                            <h4>Favorites/Frequents Management</h4>
+                            <p>BR users also requested better favorites management. Improvements there moved satisfaction up.</p>
+                            <span class="applicability-badge high">Highly Applicable</span>
+                        </div>
+                    </div>
+
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">🔒</div>
+                        <div class="geo-learning-content">
+                            <h4>Biometrics for Confirmation</h4>
+                            <p>Face ID/fingerprint for transfer confirmation reduced friction and maintained security perception.</p>
+                            <span class="applicability-badge medium">Medium Priority</span>
+                        </div>
+                    </div>
+
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">🗂️</div>
+                        <div class="geo-learning-content">
+                            <h4>"Transfer = Send Only" Mental Model</h4>
+                            <p>Research confirmed users think of "transfer" as sending, not receiving. IA/naming should reflect this.</p>
+                            <span class="applicability-badge high">Highly Applicable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mexico Card -->
+                <div class="geo-card">
+                    <div class="geo-flag">🇲🇽</div>
+                    <h3>Mexico (SPEI) Learnings</h3>
+                    
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">🔧</div>
+                        <div class="geo-learning-content">
+                            <h4>Stability Issues Create Same Pattern</h4>
+                            <p>MX SPEI showed same bimodal distribution when instability occurred. Recovery happened when stability returned.</p>
+                            <span class="applicability-badge high">Highly Applicable</span>
+                        </div>
+                    </div>
+
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">❌</div>
+                        <div class="geo-learning-content">
+                            <h4>Error Messages Need Context</h4>
+                            <p>Generic errors like "operation failed" generated anxiety. Contextual messages with next steps improved experience.</p>
+                            <span class="applicability-badge high">Critical for CO</span>
+                        </div>
+                    </div>
+
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">🔔</div>
+                        <div class="geo-learning-content">
+                            <h4>Remove Repetitive Prompts</h4>
+                            <p>MX users complained about "invite a friend" after every transfer. Post-transfer should focus on confirmation.</p>
+                            <span class="applicability-badge medium">Medium Priority</span>
+                        </div>
+                    </div>
+
+                    <div class="geo-learning-item">
+                        <div class="geo-learning-icon">🏦</div>
+                        <div class="geo-learning-content">
+                            <h4>Auto Bank Detection Requested</h4>
+                            <p>Users wanted app to automatically detect recipient's bank. Same request appearing in CO for "llaves."</p>
+                            <span class="applicability-badge high">Highly Applicable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box" style="margin-top: 32px;">
+                <div class="insight-title">🌎 Cross-Geo Pattern</div>
+                <div class="insight-content">
+                    <p><strong>Universal truths across BR, MX, and CO:</strong></p>
+                    <ul style="margin-top: 12px; padding-left: 20px; color: var(--nu-gray-700);">
+                        <li><strong>Speed = Trust</strong> — Instant confirmation is the #1 driver of satisfaction in all markets</li>
+                        <li><strong>Instability destroys trust immediately</strong> — One bad experience can turn promoters into detractors</li>
+                        <li><strong>Error handling is a major gap</strong> — Users feel abandoned when things go wrong</li>
+                        <li><strong>"Transfer = Send"</strong> — Users conceptualize transfers as sending money, not receiving</li>
+                    </ul>
+                    <p style="margin-top: 16px;"><strong>Colombia-specific:</strong> The 4x1000 tax creates unique friction not present in BR/MX. This is both a challenge and an opportunity for differentiation.</p>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="card" style="margin-top: 32px;">
+                <h4 style="margin-bottom: 16px;">📊 UX Pattern Comparison Across Markets</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>UX Pattern</th>
+                            <th>Brazil (Pix)</th>
+                            <th>Mexico (SPEI)</th>
+                            <th>Colombia (Bre-B)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Speed = Trust</td>
+                            <td><span class="status-indicator success"><span class="dot"></span> Confirmed</span></td>
+                            <td><span class="status-indicator success"><span class="dot"></span> Confirmed</span></td>
+                            <td><span class="status-indicator success"><span class="dot"></span> Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Favorites Management Gap</td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> Present</span></td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> Present</span></td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> Critical</span></td>
+                        </tr>
+                        <tr>
+                            <td>Error Message Clarity</td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> Improving</span></td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> Gap</span></td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> Critical Gap</span></td>
+                        </tr>
+                        <tr>
+                            <td>Post-Transfer Navigation</td>
+                            <td><span class="status-indicator success"><span class="dot"></span> Optimized</span></td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> Improving</span></td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> Gap</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tax/Fee Transparency</td>
+                            <td><span class="status-indicator success"><span class="dot"></span> N/A</span></td>
+                            <td><span class="status-indicator success"><span class="dot"></span> N/A</span></td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> 4x1000 Gap</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detractors Deep Dive Section -->
+    <section id="detractors">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Detractors Deep Dive</span>
+                <h2>Understanding Users Who Gave Muy baja or Baja satisfacción</h2>
+                <p>25.3% of respondents — what went wrong for them</p>
+            </div>
+            <div class="question-sample-block">
+                <div class="survey-question">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number">Sample: <span>n = 3,932</span></div>
+            </div>
+            <div class="slide-explaining">
+                <div class="slide-label">Slide 10 — What to say</div>
+                <div class="slide-text">Detractors cluster around four pains: Transfer failures — about 38.8%; repeated failures and uncertainty about status. 4x1000 — about 15%; surprise deductions and no visibility of limits. Long process — about 10%; too many taps, confusing keys, and the receipt-to-home loop. Account blocks — about 5%; especially Nu–Nequi, feeling trapped. The common thread is loss of control: they don't understand what's happening and can't fix it themselves.</div>
+            </div>
+
+            <!-- Promoters (good numbers) - same layout, green -->
+            <h3 style="font-size: 20px; color: var(--nu-success); margin-bottom: 16px;">✅ Promoters</h3>
+            <div class="promoter-highlight">
+                <div class="big-number">2,823</div>
+                <div class="big-label">Users gave Alta or Muy alta satisfacción</div>
+                <div class="context">71.8% of all respondents — the majority had a positive experience</div>
+            </div>
+            <div class="disclaimer-banner">
+                <div class="disclaimer-icon">💡</div>
+                <div class="disclaimer-content">
+                    <h4>Why we highlight the good numbers</h4>
+                    <p>We show promoters to balance the narrative and to be clear about <strong>what's working</strong>: speed, simplicity, and reliability when Bre-B succeeds. These users are the base we need to <strong>protect</strong> while we fix stability and recover detractors. If we only focus on the 25% who had a bad experience, we risk forgetting that the majority are satisfied — and that our job is to keep them that way while winning back the rest.</p>
+                </div>
+            </div>
+
+            <!-- Detractors -->
+            <h3 style="font-size: 20px; color: var(--nu-danger); margin-bottom: 16px;">⚠️ Detractors</h3>
+            <div class="detractor-highlight">
+                <div class="big-number">995</div>
+                <div class="big-label">Users gave Muy baja or Baja satisfacción</div>
+                <div class="context">25.3% of all respondents — this is abnormally high for a CSAT survey</div>
+            </div>
+
+            <div class="alert-banner">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <h4>Correlation with December 2025 Incidents</h4>
+                    <p>This CSAT was collected in January 2026, immediately following major Bre-B incidents in December. The high detractor rate likely reflects users who experienced failures during IRC-21071 (success rate 22.5%) and IRC-21141 (Nequi outage).</p>
+                </div>
+            </div>
+
+            <!-- Pain Category 1 -->
+            <div class="pain-category">
+                <div class="pain-category-header">
+                    <div class="pain-category-title">
+                        <div class="pain-icon">💥</div>
+                        <div>
+                            <h3>Transfer Failures & Instability</h3>
+                            <div class="pain-subtitle">The transfer didn't go through, or they're not sure if it did</div>
+                        </div>
+                    </div>
+                    <div class="pain-percentage">38.8%</div>
+                </div>
+                <div class="pain-content">
+                    <div class="pain-description">
+                        <h4>What Users Experienced</h4>
+                        <p>Transfers that failed silently, repeated attempts without success, app freezes during transactions, and uncertainty about whether money was actually sent. Many users report trying 3-5+ times before giving up.</p>
+                        <div class="ux-issue-card" style="margin-top: 16px;">
+                            <div class="issue-title">🔴 User Experience Impact</div>
+                            <div class="issue-description">Users don't just lose the transaction — they lose confidence in using Nu for any financial operation. Several verbatims mention considering switching to other banks.</div>
+                        </div>
+                    </div>
+                    <div class="pain-quotes">
+                        <h4>What They Said</h4>
+                        <div class="quote-card">
+                            <div class="quote-text">"I've tried more than 5 times to transfer money and I can't"</div>
+                            <div class="quote-original">"he intentado mas de 5 veces trasladar plata de mi cuenta a Bold y no puedo"</div>
+                            <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                        </div>
+                        <div class="quote-card">
+                            <div class="quote-text">"Sometimes it takes a while, it's not fast and you don't know if the transfer was made or not"</div>
+                            <div class="quote-original">"a veces demora, no lo hace rápido y no se sabe si se hizo o no la transferencia"</div>
+                            <div class="quote-rating negative">⭐ Alta satisfacción</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pain Category 2 -->
+            <div class="pain-category">
+                <div class="pain-category-header">
+                    <div class="pain-category-title">
+                        <div class="pain-icon">🔒</div>
+                        <div>
+                            <h3>Account Blocks & No Resolution</h3>
+                            <div class="pain-subtitle">Blocked from transferring with no explanation or path to fix</div>
+                        </div>
+                    </div>
+                    <div class="pain-percentage">~5%</div>
+                </div>
+                <div class="pain-content">
+                    <div class="pain-description">
+                        <h4>What Users Experienced</h4>
+                        <p>Some users report persistent blocks, particularly for Nu ↔ Nequi transfers, that haven't been resolved despite reaching out to support. They feel stuck and ignored.</p>
+                        <div class="ux-issue-card" style="margin-top: 16px;">
+                            <div class="issue-title">🔴 User Experience Impact</div>
+                            <div class="issue-description">This creates a feeling of being "trapped" — they have money in Nu but can't send it where they need. This is especially frustrating for users who relied on Nu as their primary account.</div>
+                        </div>
+                    </div>
+                    <div class="pain-quotes">
+                        <h4>What They Said</h4>
+                        <div class="quote-card">
+                            <div class="quote-text">"There's a persistent block on my Nu account against my Nequi account and they don't give me a solution"</div>
+                            <div class="quote-original">"persiste un bloqueo en mi cuenta de Nu contra mi cuenta de Nequi y no me dan solución"</div>
+                            <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                        </div>
+                        <div class="quote-card">
+                            <div class="quote-text">"How is it possible that I can't pay taxes with this account?? And I can't make large movements either"</div>
+                            <div class="quote-original">"Como es posible que no pueda hacer pago de impuesto con esta cuenta ?? y tampoco hacer movimientos grandes"</div>
+                            <div class="quote-rating negative">⭐ Baja satisfacción</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pain Category 3 -->
+            <div class="pain-category">
+                <div class="pain-category-header">
+                    <div class="pain-category-title">
+                        <div class="pain-icon">💰</div>
+                        <div>
+                            <h3>4x1000 Confusion & Frustration</h3>
+                            <div class="pain-subtitle">Unexpected charges and lack of visibility into tax accumulation</div>
+                        </div>
+                    </div>
+                    <div class="pain-percentage">~15%</div>
+                </div>
+                <div class="pain-content">
+                    <div class="pain-description">
+                        <h4>What Users Experienced</h4>
+                        <p>Users feel "surprised" by 4x1000 deductions. They can't track their accumulated tax, don't understand exemption rules, and question charges they believe shouldn't apply (e.g., same-person transfers).</p>
+                        <div class="ux-issue-card" style="margin-top: 16px;">
+                            <div class="issue-title">🟡 User Experience Impact</div>
+                            <div class="issue-description">This creates a perception that Nu is "taking extra money" or not being transparent. Some users mention they avoid using Nu for large transfers specifically because of 4x1000 uncertainty.</div>
+                        </div>
+                    </div>
+                    <div class="pain-quotes">
+                        <h4>What They Said</h4>
+                        <div class="quote-card">
+                            <div class="quote-text">"Every time I make a transfer, regardless of the amount, 4x1000 is deducted"</div>
+                            <div class="quote-original">"cada vez que realizó un envío sin importar el monto se descuenta el 4x1000"</div>
+                            <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                        </div>
+                        <div class="quote-card">
+                            <div class="quote-text">"According to a decree, 4x1000 shouldn't be charged if you don't exceed an amount, but they're deducting it from me"</div>
+                            <div class="quote-original">"según un decreto no se deben hacer cobros de 4x1000 si no se sobrepasa un monto, pero me están descontando"</div>
+                            <div class="quote-rating negative">⭐ Indiferente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pain Category 4 -->
+            <div class="pain-category">
+                <div class="pain-category-header">
+                    <div class="pain-category-title">
+                        <div class="pain-icon">🐌</div>
+                        <div>
+                            <h3>Process Too Long & Confusing</h3>
+                            <div class="pain-subtitle">Too many steps, unclear navigation, difficult to complete transfers</div>
+                        </div>
+                    </div>
+                    <div class="pain-percentage">~10%</div>
+                </div>
+                <div class="pain-content">
+                    <div class="pain-description">
+                        <h4>What Users Experienced</h4>
+                        <p>Users complain about needing too many taps to complete a transfer, difficulty finding where contacts are saved, and confusing navigation after completing a transfer.</p>
+                        <div class="ux-issue-card" style="margin-top: 16px;">
+                            <div class="issue-title">🟡 User Experience Impact</div>
+                            <div class="issue-description">These aren't failures — the transfer completes. But the friction makes users feel the product is "not as good as other banks" and erodes the premium perception Nu should have.</div>
+                        </div>
+                    </div>
+                    <div class="pain-quotes">
+                        <h4>What They Said</h4>
+                        <div class="quote-card">
+                            <div class="quote-text">"It's too long to make the payment, too many steps to pay"</div>
+                            <div class="quote-original">"es muy largo hacer el pago, muchos pasos para poder pagar"</div>
+                            <div class="quote-rating negative">⭐ Baja satisfacción</div>
+                        </div>
+                        <div class="quote-card">
+                            <div class="quote-text">"When I make a transfer and I'm at the receipt part, I have to go back through all the steps to get to the beginning"</div>
+                            <div class="quote-original">"Cuando hago una transferencia y estoy en la parte del comprobante, me debo devolver todos los pasos para llegar al inicio"</div>
+                            <div class="quote-rating negative">⭐ Muy baja satisfacción</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box danger" style="margin-top: 32px;">
+                <div class="insight-title">🚨 Key Detractor Insight</div>
+                <div class="insight-content">
+                    <p><strong>The common thread:</strong> Detractors feel a <strong>loss of control</strong>. Whether it's a failed transfer, an unexplained block, a surprise tax deduction, or a confusing flow — they don't understand what's happening and can't fix it themselves.</p>
+                    <p style="margin-top: 12px;"><strong>The opportunity:</strong> Improving error communication, providing self-service recovery options, and adding 4x1000 visibility could significantly reduce detractor volume in future waves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Data Section -->
+    <section id="data" style="background: var(--nu-white);">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">The Full Data</span>
+                <h2>Complete CSAT Results — January 2026</h2>
+                <p>Baseline measurement for future comparison</p>
+            </div>
+            <div class="question-sample-block">
+                <div class="survey-question">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number">Sample: <span>n = 3,932</span></div>
+            </div>
+            <div class="slide-explaining">
+                <div class="slide-label">Slides 3–4 — What to say</div>
+                <div class="slide-text">This is our baseline. Future waves will be compared to this. It's important to remember that January 2026 data was collected right after significant Bre-B instability in December 2025, so part of what we see may reflect that context.</div>
+            </div>
+
+            <div class="context-card">
+                <h3>📋 Context: This is the First Wave</h3>
+                <p>This is the <strong>baseline measurement</strong> for Colombia Transfer Out CSAT. Future waves will be compared against these numbers. The January 2026 data reflects a unique context: it was collected immediately after significant Bre-B instability in December 2025.</p>
+            </div>
+
+            <!-- CSAT Overview -->
+            <div class="card" style="margin-bottom: 32px;">
+                <h4 style="margin-bottom: 24px;">📊 Rating Distribution</h4>
+                <div class="csat-overview">
+                    <div class="csat-donut">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="35" stroke="#E5E5E5" stroke-dasharray="220" stroke-dashoffset="0"></circle>
+                            <circle cx="50" cy="50" r="35" stroke="#8A05BE" stroke-dasharray="220" stroke-dashoffset="62"></circle>
+                        </svg>
+                        <div class="donut-center">
+                            <div class="donut-value">71.8%</div>
+                            <div class="donut-label">CSAT</div>
+                        </div>
+                    </div>
+                    <div class="rating-breakdown">
+                        <div class="rating-row">
+                            <div class="rating-label">Muy alta satisfacción</div>
+                            <div class="rating-bar">
+                                <div class="rating-fill r5" style="width: 53.9%;">53.9%</div>
+                            </div>
+                            <div class="rating-value">2,120</div>
+                        </div>
+                        <div class="rating-row">
+                            <div class="rating-label">Alta satisfacción</div>
+                            <div class="rating-bar">
+                                <div class="rating-fill r4" style="width: 17.9%;">17.9%</div>
+                            </div>
+                            <div class="rating-value">703</div>
+                        </div>
+                        <div class="rating-row">
+                            <div class="rating-label">Indiferente</div>
+                            <div class="rating-bar">
+                                <div class="rating-fill r3" style="width: 2.95%;"></div>
+                            </div>
+                            <div class="rating-value">116</div>
+                        </div>
+                        <div class="rating-row">
+                            <div class="rating-label">Baja satisfacción</div>
+                            <div class="rating-bar">
+                                <div class="rating-fill r2" style="width: 1.22%;"></div>
+                            </div>
+                            <div class="rating-value">48</div>
+                        </div>
+                        <div class="rating-row">
+                            <div class="rating-label">Muy baja satisfacción</div>
+                            <div class="rating-bar">
+                                <div class="rating-fill r1" style="width: 24.1%;">24.1%</div>
+                            </div>
+                            <div class="rating-value">947</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verbatim Sentiment -->
+            <div class="card" style="margin-bottom: 32px;">
+                <h4 style="margin-bottom: 8px;">💬 Verbatim Sentiment Analysis</h4>
+                <p style="font-size: 14px; color: var(--nu-gray-500); margin-bottom: 24px;">
+                    <strong>2,439 verbatims analyzed</strong> out of 3,932 total responses • <strong>62% response rate with written feedback</strong>
+                </p>
+                <div class="verbatim-by-topic">
+                    <div class="verbatim-topic-row positive">
+                        <div class="verbatim-topic-meta">
+                            <div class="value">41.5%</div>
+                            <div class="label">Positive</div>
+                        </div>
+                        <div class="verbatim-topic-examples">
+                            <div class="example">"Proceso rápido y sencillo"</div>
+                            <div class="example">"la verdad 10/10 el bre-b"</div>
+                            <div class="example">"todo es fácil y rápido y la app es amigable"</div>
+                        </div>
+                    </div>
+                    <div class="verbatim-topic-row improvement">
+                        <div class="verbatim-topic-meta">
+                            <div class="value">40.3%</div>
+                            <div class="label">Improvement</div>
+                        </div>
+                        <div class="verbatim-topic-examples">
+                            <div class="example">"poder editar los preferidos guardados para enviar el dinero, con el fin de poder personalizarlos"</div>
+                            <div class="example">"quisiera conocer en mi cuenta cuanto he enviado en el mes para saber cuando llegaré al tope de 4x1000 mensual"</div>
+                            <div class="example">"Agregar una opción al finalizar las transacciones para regresar a la página inicial, ya que siempre toca devolverse"</div>
+                        </div>
+                    </div>
+                    <div class="verbatim-topic-row neutral">
+                        <div class="verbatim-topic-meta">
+                            <div class="value">8.7%</div>
+                            <div class="label">Neutral</div>
+                        </div>
+                        <div class="verbatim-topic-examples">
+                            <div class="example">"así está bien"</div>
+                            <div class="example">"todo está ok"</div>
+                            <div class="example">"mientras no se caiga la plataforma todo marcha como debe ser"</div>
+                        </div>
+                    </div>
+                    <div class="verbatim-topic-row negative">
+                        <div class="verbatim-topic-meta">
+                            <div class="value">5.5%</div>
+                            <div class="label">Negative</div>
+                        </div>
+                        <div class="verbatim-topic-examples">
+                            <div class="example">"he intentado mas de 5 veces trasladar plata de mi cuenta a Bold y no puedo"</div>
+                            <div class="example">"persiste un bloqueo en mi cuenta de Nu contra mi cuenta de Nequi y no me dan solución"</div>
+                            <div class="example">"a veces la app falla en los envíos por Bre-B"</div>
+                        </div>
+                    </div>
+                    <div class="verbatim-topic-row no-sense">
+                        <div class="verbatim-topic-meta">
+                            <div class="value">4.0%</div>
+                            <div class="label">No Sense</div>
+                        </div>
+                        <div class="verbatim-topic-examples">
+                            <div class="example">"sin comentarios"</div>
+                            <div class="example">"todo bien!!"</div>
+                            <div class="example">"nada que agregar"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segment by Rating Chart -->
+            <div class="card" style="margin-bottom: 32px;">
+                <h4 style="margin-bottom: 8px;">📊 Sentiment Distribution by Rating</h4>
+                <div class="question-sample-block" style="margin-bottom: 16px;">
+                    <div class="survey-question">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                    <div class="sample-number">Sample: <span>n = 3,932</span> (2,439 verbatims with written feedback — 62% response rate)</div>
+                </div>
+                <p style="font-size: 14px; color: var(--nu-gray-500); margin-bottom: 24px;">Understanding what users write at each rating level helps prioritize actions. Muy baja satisfacción with negative sentiment needs root cause fixes; Alta satisfacción with improvement requests needs quick UX wins.</p>
+                
+                <div class="vertical-chart-container">
+                    <div class="vertical-chart">
+                        <!-- Muy baja satisfacción -->
+                        <div class="chart-column">
+                            <div class="chart-bars">
+                                <div class="chart-bar positive" style="height: 8px;">
+                                    <span class="bar-value">2%</span>
+                                </div>
+                                <div class="chart-bar improvement" style="height: 60px;">
+                                    <span class="bar-value">15%</span>
+                                </div>
+                                <div class="chart-bar neutral" style="height: 20px;">
+                                    <span class="bar-value">5%</span>
+                                </div>
+                                <div class="chart-bar negative" style="height: 200px;">
+                                    <span class="bar-value">78%</span>
+                                </div>
+                            </div>
+                            <div class="chart-label">⭐ 1</div>
+                        </div>
+
+                        <!-- Baja satisfacción -->
+                        <div class="chart-column">
+                            <div class="chart-bars">
+                                <div class="chart-bar positive" style="height: 12px;">
+                                    <span class="bar-value">5%</span>
+                                </div>
+                                <div class="chart-bar improvement" style="height: 125px;">
+                                    <span class="bar-value">50%</span>
+                                </div>
+                                <div class="chart-bar neutral" style="height: 25px;">
+                                    <span class="bar-value">10%</span>
+                                </div>
+                                <div class="chart-bar negative" style="height: 88px;">
+                                    <span class="bar-value">35%</span>
+                                </div>
+                            </div>
+                            <div class="chart-label">⭐ 2</div>
+                        </div>
+
+                        <!-- Indiferente -->
+                        <div class="chart-column">
+                            <div class="chart-bars">
+                                <div class="chart-bar positive" style="height: 50px;">
+                                    <span class="bar-value">20%</span>
+                                </div>
+                                <div class="chart-bar improvement" style="height: 138px;">
+                                    <span class="bar-value">55%</span>
+                                </div>
+                                <div class="chart-bar neutral" style="height: 38px;">
+                                    <span class="bar-value">15%</span>
+                                </div>
+                                <div class="chart-bar negative" style="height: 25px;">
+                                    <span class="bar-value">10%</span>
+                                </div>
+                            </div>
+                            <div class="chart-label">⭐ 3</div>
+                        </div>
+
+                        <!-- Alta satisfacción -->
+                        <div class="chart-column">
+                            <div class="chart-bars">
+                                <div class="chart-bar positive" style="height: 100px;">
+                                    <span class="bar-value">40%</span>
+                                </div>
+                                <div class="chart-bar improvement" style="height: 113px;">
+                                    <span class="bar-value">45%</span>
+                                </div>
+                                <div class="chart-bar neutral" style="height: 30px;">
+                                    <span class="bar-value">12%</span>
+                                </div>
+                                <div class="chart-bar negative" style="height: 8px;">
+                                    <span class="bar-value">3%</span>
+                                </div>
+                            </div>
+                            <div class="chart-label">⭐ 4</div>
+                        </div>
+
+                        <!-- Muy alta satisfacción -->
+                        <div class="chart-column">
+                            <div class="chart-bars">
+                                <div class="chart-bar positive" style="height: 200px;">
+                                    <span class="bar-value">80%</span>
+                                </div>
+                                <div class="chart-bar improvement" style="height: 38px;">
+                                    <span class="bar-value">15%</span>
+                                </div>
+                                <div class="chart-bar neutral" style="height: 10px;">
+                                    <span class="bar-value">4%</span>
+                                </div>
+                                <div class="chart-bar negative" style="height: 3px;">
+                                    <span class="bar-value">1%</span>
+                                </div>
+                            </div>
+                            <div class="chart-label">⭐ 5</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color positive"></div>
+                            <span>Positive</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color improvement"></div>
+                            <span>Improvement</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color neutral"></div>
+                            <span>Neutral</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color negative"></div>
+                            <span>Negative</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insight-box" style="margin-top: 24px;">
+                    <div class="insight-title">📈 Key Insight from Chart</div>
+                    <div class="insight-content">
+                        <strong>Muy baja satisfacción is dominated by Negative sentiment (78%)</strong> — users who give the lowest score are expressing frustration, not just asking for improvements. In contrast, <strong>Muy alta satisfacción is 80% Positive</strong> — these users are genuinely satisfied. The middle ratings (3-4) show high Improvement sentiment, suggesting users see potential but have specific requests.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Subcategories -->
+            <div class="card">
+                <h4 style="margin-bottom: 24px;">📋 Top Improvement Requests (from verbatims)</h4>
+                <table class="comparison-table improvement-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Volume</th>
+                            <th>% of Total</th>
+                            <th>3 Examples (verbatims)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Simplify transfer process</td>
+                            <td>195</td>
+                            <td>8.2%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">"es muy largo hacer el pago, muchos pasos para poder pagar"</div>
+                                <div class="verbatim-example">"a veces es un poco enredado hacer pagos a terceros por llave"</div>
+                                <div class="verbatim-example">"Cuando hago una transferencia... me debo devolver todos los pasos para llegar al inicio"</div>
+                            </td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> UX Opportunity</span></td>
+                        </tr>
+                        <tr>
+                            <td>Reduce fees / 4x1000</td>
+                            <td>107</td>
+                            <td>4.5%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">"quisiera conocer en mi cuenta cuanto he enviado en el mes para saber cuando llegaré al tope de 4x1000 mensual"</div>
+                                <div class="verbatim-example">"se supone que entre cuentas de la misma persona no se cobra el 4x1000, por qué lo están cobrando?"</div>
+                                <div class="verbatim-example">"el comprobante que se quiere compartir no debería incluir el valor del 4x1000"</div>
+                            </td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> Feature Gap</span></td>
+                        </tr>
+                        <tr>
+                            <td>Credit limit increase</td>
+                            <td>82</td>
+                            <td>3.4%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">(verbatims asking for higher credit limit)</div>
+                                <div class="verbatim-example">—</div>
+                                <div class="verbatim-example">—</div>
+                            </td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> Out of Scope</span></td>
+                        </tr>
+                        <tr>
+                            <td>Improve transfer history</td>
+                            <td>35</td>
+                            <td>1.5%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">"Puede mostrarse una lista de las llaves"</div>
+                                <div class="verbatim-example">"poder agrupar las cuentas a las cuales envió dinero para identificarlas"</div>
+                                <div class="verbatim-example">"Mejorar feed con historial de las transferencias"</div>
+                            </td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> UX Opportunity</span></td>
+                        </tr>
+                        <tr>
+                            <td>Reduce instability/bugs</td>
+                            <td>33</td>
+                            <td>1.4%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">"he intentado mas de 5 veces trasladar plata de mi cuenta a Bold y no puedo"</div>
+                                <div class="verbatim-example">"a veces la app falla en los envíos por Bre-B"</div>
+                                <div class="verbatim-example">"mientras no se caiga la plataforma todo marcha como debe ser"</div>
+                            </td>
+                            <td><span class="status-indicator danger"><span class="dot"></span> Critical</span></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer limits</td>
+                            <td>32</td>
+                            <td>1.3%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">(verbatims about transfer limits / límites)</div>
+                                <div class="verbatim-example">—</div>
+                                <div class="verbatim-example">—</div>
+                            </td>
+                            <td><span class="status-indicator warning"><span class="dot"></span> Policy</span></td>
+                        </tr>
+                        <tr>
+                            <td>Fraud protection</td>
+                            <td>32</td>
+                            <td>1.3%</td>
+                            <td class="examples-cell">
+                                <div class="verbatim-example">"Es necesario poner la contraseña en cada envío? si ya me registré con face id"</div>
+                                <div class="verbatim-example">"que también se pueda autorizar con la huella dactilar"</div>
+                                <div class="verbatim-example">"Me gustaría que cuando se pague por llaves tengan un tope para girar y que al ser más pidan otra información"</div>
+                            </td>
+                            <td><span class="status-indicator success"><span class="dot"></span> In Progress</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section id="recommendations">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Recommendations</span>
+                <h2>Where to Focus to Improve CSAT</h2>
+                <p>Prioritized actions based on user pain and business impact</p>
+            </div>
+            <div class="question-sample-block">
+                <div class="survey-question">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number">Sample: <span>n = 3,932</span></div>
+            </div>
+            <div class="slide-explaining">
+                <div class="slide-label">Slides 11–12 — What to say</div>
+                <div class="slide-text">Priorities in order: One, maintain Bre-B reliability — monitoring and proactive comms. Two, build the 4x1000 tracker — show accumulated tax and distance to cap. Three, contextual error messages — replace generic errors with clear guidance. Four, resolve Nu–Nequi blocks. Beyond that, quick wins: post-transfer Go to Home, keys management 2.0, Face ID for confirmation, QR from gallery. We recommend doing the navigation and keys improvements first — they're low effort and directly address verbatim demand.</div>
+            </div>
+
+            <h3 style="color: var(--nu-danger); margin-bottom: 20px; font-size: 20px;">🔴 High Priority — Address Immediately</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="rec-priority high">P0</span>
+                    <h4>Maintain Bre-B Stability</h4>
+                    <p>Implement real-time monitoring with alerts for success rate drops. Proactive customer communication during incidents. Post-mortem of December to prevent recurrence.</p>
+                </div>
+                <div class="recommendation-card">
+                    <span class="rec-priority high">P0</span>
+                    <h4>Build 4x1000 Tracker</h4>
+                    <p>Show accumulated tax in the month. Indicate distance to monthly cap. Alert when approaching limit. Competitive differentiator opportunity.</p>
+                </div>
+                <div class="recommendation-card">
+                    <span class="rec-priority high">P1</span>
+                    <h4>Investigate NU ↔ Nequi Blocks</h4>
+                    <p>Identify users with persistent blocks since December. Proactive outreach and resolution. These are vocal detractors damaging perception.</p>
+                </div>
+                <div class="recommendation-card">
+                    <span class="rec-priority high">P1</span>
+                    <h4>Improve Error Messages</h4>
+                    <p>Replace generic errors with contextual explanations. Include clear next steps. Reduce anxiety during failure moments.</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--nu-warning); margin: 40px 0 20px; font-size: 20px;">🟡 Medium Priority — UX Quick Wins</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="rec-priority medium">P2</span>
+                    <h4>Fix Post-Transfer Navigation</h4>
+                    <p>Add "Go to Home" button after receipt. Or auto-navigate after X seconds. Low effort, immediate improvement.</p>
+                </div>
+                <div class="recommendation-card">
+                    <span class="rec-priority medium">P2</span>
+                    <h4>Improve Keys Management</h4>
+                    <p>Allow editing/renaming saved keys. Show bank name for each key. Allow deleting unused contacts.</p>
+                </div>
+                <div class="recommendation-card">
+                    <span class="rec-priority medium">P2</span>
+                    <h4>QR Awareness Campaign</h4>
+                    <p>Feature launched but many users don't know. In-app communication, tooltip on first access. Convert requests into satisfaction.</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--nu-purple); margin: 40px 0 20px; font-size: 20px;">🟣 Lower Priority — Structural Improvements</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="rec-priority low">P3</span>
+                    <h4>Face ID for Confirmation</h4>
+                    <p>Option to use biometrics instead of password. Configurable by minimum amount. Reduces friction for frequent transfers.</p>
+                </div>
+                <div class="recommendation-card">
+                    <span class="rec-priority low">P3</span>
+                    <h4>QR from Gallery</h4>
+                    <p>Allow scanning QR codes from saved photos. Common request for users who receive QRs via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section style="background: linear-gradient(135deg, var(--nu-purple-dark), var(--nu-purple));">
+        <div class="container">
+            <div class="section-header" style="color: var(--nu-white);">
+                <span class="tag" style="background: rgba(255,255,255,0.2); color: var(--nu-white);">Next Steps</span>
+                <h2 style="color: var(--nu-white);">From Baseline to Improvement</h2>
+                <p style="color: var(--nu-purple-lighter);">Actions to track and validate learnings</p>
+            </div>
+            <div class="question-sample-block" style="background: rgba(255,255,255,0.15); border-left-color: var(--nu-white);">
+                <div class="survey-question" style="color: var(--nu-white); font-style: normal;">¿Cómo calificarías tu nivel de satisfacción con el proceso para enviar dinero?</div>
+                <div class="sample-number" style="color: var(--nu-purple-lighter);">Sample: <span style="color: var(--nu-white);">n = 3,932</span></div>
+            </div>
+            <div class="slide-explaining" style="background: rgba(255,255,255,0.15); border-left-color: var(--nu-white);">
+                <div class="slide-label" style="color: var(--nu-white);">Slide 14 — What to say</div>
+                <div class="slide-text" style="color: var(--nu-white); font-style: normal;">To close: the foundation is solid — when Bre-B works, users love it. The path to higher CSAT is clear — maintain stability, add 4x1000 visibility, and improve error handling and small UX frictions. This deck and the deep analysis document give us the structure to track progress in the next waves.</div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h4>🔍 Qualitative Interviews</h4>
+                    <p>Interview sample of Muy baja satisfacción users from January to validate correlation with December incidents.</p>
+                </div>
+                <div class="card">
+                    <h4>📊 Log Analysis</h4>
+                    <p>Cross-reference Muy baja satisfacción timestamps with Bre-B error logs to quantify incident impact.</p>
+                </div>
+                <div class="card">
+                    <h4>📋 4x1000 Feature Spec</h4>
+                    <p>Create detailed specification for accumulated tax tracker with PM and Design.</p>
+                </div>
+                <div class="card">
+                    <h4>🔧 Nequi Block Investigation</h4>
+                    <p>Query logs for users with persistent NU→Nequi failures since December outage.</p>
+                </div>
+                <div class="card">
+                    <h4>📈 QR Adoption Metrics</h4>
+                    <p>Analyze QR feature usage since launch to validate low awareness hypothesis.</p>
+                </div>
+                <div class="card">
+                    <h4>🔄 February Re-measurement</h4>
+                    <p>Track CSAT recovery if stability maintained. Key validation for incident hypothesis.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px; padding: 32px; background: rgba(255,255,255,0.1); border-radius: 16px;">
+                <p style="color: var(--nu-purple-lighter); font-size: 16px; margin-bottom: 12px;">Baseline Established: January 2026</p>
+                <p style="color: var(--nu-white); font-size: 28px; font-weight: 700;">Target: 71.8% → 80%+ by Q2 2026</p>
+                <p style="color: var(--nu-purple-lighter); font-size: 14px; margin-top: 12px;">Focus on stability, 4x1000 visibility, and error handling to drive improvement</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">🇨🇴 Colombia CSAT Analysis</div>
+            <p>GBA Research Team | February 2026</p>
+            <p style="margin-top: 8px; color: var(--nu-gray-500);">Transfer Out (Bre-B) | Cuenta Colombia | First Wave Baseline</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.learning-card, .geo-card, .pain-category, .recommendation-card, .card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
