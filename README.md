@@ -1,15 +1,10 @@
-# Design Roadmap & Colombia CSAT
+# Design Roadmap — Show & Tell H1/26
 
-Static site for the **Design Roadmap Show & Tell H1/26** (interactive view) and **Colombia CSAT** materials.
+Single-page interactive view of the Design Roadmap (teams, lanes, synergies, Magic App initiatives).
 
-## Links (after enabling GitHub Pages)
+## Publish on GitHub Pages
 
-- **Roadmap (H1/26):** `https://YOUR-USERNAME.github.io/REPO-NAME/Roadmap_Interactive_View.html`
-- **Colombia CSAT:** `https://YOUR-USERNAME.github.io/REPO-NAME/`
+1. **Settings → Pages** → Source: **Deploy from a branch** → Branch: **main**, folder: **/ (root)** → Save.
+2. Your shareable link: **`https://YOUR-USERNAME.github.io/REPO-NAME/`**
 
-## Enable GitHub Pages
-
-1. In this repo go to **Settings → Pages**.
-2. Under **Source** choose **Deploy from a branch**.
-3. Branch: **main** (or **master**), folder: **/ (root)** → **Save**.
-4. Wait 1–2 minutes; your site will be at `https://<username>.github.io/<repo-name>/`.
+See **GITHUB_PAGES_SETUP.md** for first-time push steps.
