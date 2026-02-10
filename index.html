@@ -40,26 +40,20 @@
         /* App shell */
         .app {
             display: flex;
-            flex-direction: column;
             min-height: 100vh;
         }
 
         .app-top-badge {
             width: 100%;
             padding: 8px 16px;
+            margin-bottom: 16px;
             background: var(--nu-purple-bg);
-            border-bottom: 1px solid var(--nu-gray-200);
+            border-radius: var(--radius-sm);
             font-size: 11px;
             font-weight: 600;
             color: var(--nu-purple);
             text-align: center;
             letter-spacing: 0.02em;
-        }
-
-        .app-body {
-            display: flex;
-            flex: 1;
-            min-height: 0;
         }
 
         /* Sidebar - teams */
@@ -1193,7 +1187,7 @@
         }
 
         @media (max-width: 768px) {
-            .app-body { flex-direction: column; }
+            .app { flex-direction: column; }
             .sidebar {
                 width: 100%;
                 flex-direction: row;
@@ -1211,51 +1205,69 @@
             .funfacts-grid { grid-template-columns: 1fr; }
             .pattern-card { grid-template-columns: 28px 1fr; gap: 12px; }
         }
-    </style>
-        /* Password gate */
+
+        /* Password gate — simple full-screen */
         #passwordGate {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: linear-gradient(135deg, var(--nu-gray-900) 0%, #1a0a2e 50%, var(--nu-purple) 120%);
+            background: var(--nu-gray-100);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 24px;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        #passwordGate.hidden { display: none; }
+        #passwordGate.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
         .gate-box {
             background: var(--nu-white);
-            border-radius: var(--radius);
-            padding: 40px;
-            max-width: 360px;
+            border-radius: 16px;
+            padding: 48px 40px;
+            max-width: 340px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--nu-gray-200);
             text-align: center;
         }
-        .gate-box h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--nu-black);
+        .gate-box .gate-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--nu-purple);
+            letter-spacing: -0.04em;
             margin-bottom: 8px;
+        }
+        .gate-box h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--nu-gray-900);
+            margin-bottom: 6px;
         }
         .gate-box p {
             font-size: 13px;
-            color: var(--nu-gray-600);
-            margin-bottom: 24px;
+            color: var(--nu-gray-500);
+            margin-bottom: 28px;
         }
         .gate-box input {
             width: 100%;
-            padding: 14px 18px;
-            font-size: 16px;
-            border: 2px solid var(--nu-gray-200);
-            border-radius: var(--radius-sm);
-            margin-bottom: 16px;
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 1px solid var(--nu-gray-200);
+            border-radius: 10px;
+            margin-bottom: 14px;
             box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
         .gate-box input:focus {
             outline: none;
             border-color: var(--nu-purple);
+            box-shadow: 0 0 0 3px var(--nu-purple-bg);
+        }
+        .gate-box input::placeholder {
+            color: var(--nu-gray-400);
         }
         .gate-box button {
             width: 100%;
@@ -1265,7 +1277,7 @@
             color: var(--nu-white);
             background: var(--nu-purple);
             border: none;
-            border-radius: var(--radius-sm);
+            border-radius: 10px;
             cursor: pointer;
             transition: background 0.2s, transform 0.1s;
         }
@@ -1274,7 +1286,7 @@
         .gate-error {
             font-size: 12px;
             color: #c62828;
-            margin-top: 8px;
+            margin-top: 10px;
             min-height: 18px;
         }
 
@@ -1385,16 +1397,15 @@
 <body>
     <div id="passwordGate">
         <div class="gate-box">
+            <div class="gate-logo">nu</div>
             <h2>Design Roadmap H1/26</h2>
-            <p>Enter the password to view.</p>
+            <p>Enter the password to continue</p>
             <input type="password" id="gatePassword" placeholder="Password" autocomplete="off" />
             <button type="button" id="gateSubmit">Enter</button>
             <div class="gate-error" id="gateError"></div>
         </div>
     </div>
     <div class="app" id="mainApp">
-        <div class="app-top-badge">Selo. feito com Glean + Cursor!</div>
-        <div class="app-body">
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="nu">nu</div>
@@ -1405,6 +1416,7 @@
         </aside>
 
         <main class="main">
+            <div class="app-top-badge">Glean + Cursor!</div>
             <h1 class="page-title">H1/26 Design Roadmaps: Whole view</h1>
             <p class="page-subtitle">Visibility and synergy across Design teams. Big picture, connections, and how work ties to Magic App. Tap a team pill to open details.</p>
 
