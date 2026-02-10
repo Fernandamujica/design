@@ -40,7 +40,26 @@
         /* App shell */
         .app {
             display: flex;
+            flex-direction: column;
             min-height: 100vh;
+        }
+
+        .app-top-badge {
+            width: 100%;
+            padding: 8px 16px;
+            background: var(--nu-purple-bg);
+            border-bottom: 1px solid var(--nu-gray-200);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--nu-purple);
+            text-align: center;
+            letter-spacing: 0.02em;
+        }
+
+        .app-body {
+            display: flex;
+            flex: 1;
+            min-height: 0;
         }
 
         /* Sidebar - teams */
@@ -270,8 +289,15 @@
         }
 
         .pattern-callout .pattern-emoji {
-            font-size: 24px;
+            font-size: 20px;
             line-height: 1;
+            color: var(--nu-purple);
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+        .pattern-callout .pattern-icon-link {
+            font-size: 22px;
+            opacity: 0.9;
         }
 
         .pattern-callout .pattern-text {
@@ -926,6 +952,36 @@
             color: var(--nu-gray-600);
             line-height: 1.5;
         }
+        .lane-who-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .lane-team-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--nu-gray-900);
+            background: var(--nu-gray-100);
+            border: 1px solid var(--nu-gray-200);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .lane-team-pill:hover {
+            background: var(--nu-purple-bg);
+            border-color: var(--nu-purple);
+        }
+        .lane-team-pill .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--nu-purple);
+            flex-shrink: 0;
+        }
 
         .synergies-segment {
             margin-bottom: 32px;
@@ -1137,7 +1193,7 @@
         }
 
         @media (max-width: 768px) {
-            .app { flex-direction: column; }
+            .app-body { flex-direction: column; }
             .sidebar {
                 width: 100%;
                 flex-direction: row;
@@ -1156,9 +1212,189 @@
             .pattern-card { grid-template-columns: 28px 1fr; gap: 12px; }
         }
     </style>
+        /* Password gate */
+        #passwordGate {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--nu-gray-900) 0%, #1a0a2e 50%, var(--nu-purple) 120%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #passwordGate.hidden { display: none; }
+        .gate-box {
+            background: var(--nu-white);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 360px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .gate-box h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--nu-black);
+            margin-bottom: 8px;
+        }
+        .gate-box p {
+            font-size: 13px;
+            color: var(--nu-gray-600);
+            margin-bottom: 24px;
+        }
+        .gate-box input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 16px;
+            border: 2px solid var(--nu-gray-200);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        .gate-box input:focus {
+            outline: none;
+            border-color: var(--nu-purple);
+        }
+        .gate-box button {
+            width: 100%;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--nu-white);
+            background: var(--nu-purple);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .gate-box button:hover { background: var(--nu-purple-light); }
+        .gate-box button:active { transform: scale(0.98); }
+        .gate-error {
+            font-size: 12px;
+            color: #c62828;
+            margin-top: 8px;
+            min-height: 18px;
+        }
+
+        /* Page motion & sparkles */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes sparkleFloat {
+            0%, 100% { opacity: 0.3; transform: translate(0, 0) scale(1); }
+            50% { opacity: 0.9; transform: translate(4px, -8px) scale(1.1); }
+        }
+        @keyframes sparklePulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        @keyframes shimmer {
+            0% { background-position: -120% 0; }
+            100% { background-position: 120% 0; }
+        }
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .lanes-segment { animation-delay: 0.1s; opacity: 0; }
+        .lanes-segment.animate-in { animation-delay: 0.1s; }
+        .grid-2 { animation-delay: 0.2s; opacity: 0; }
+        .grid-2.animate-in { animation-delay: 0.2s; }
+        .synergies-segment { animation-delay: 0.25s; opacity: 0; }
+        .synergies-segment.animate-in { animation-delay: 0.25s; }
+        .funfacts-segment { animation-delay: 0.3s; opacity: 0; }
+        .funfacts-segment.animate-in { animation-delay: 0.3s; }
+        .patterns-segment { animation-delay: 0.35s; opacity: 0; }
+        .patterns-segment.animate-in { animation-delay: 0.35s; }
+        .magic-app-segment { animation-delay: 0.4s; opacity: 0; position: relative; overflow: visible; }
+        .magic-app-segment.animate-in { animation-delay: 0.4s; }
+
+        .magic-app-segment .sparkle-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: inherit;
+        }
+        .magic-app-segment .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1.5px solid var(--nu-purple);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: sparkleFloat 3s ease-in-out infinite;
+        }
+        .magic-app-segment .sparkle:nth-child(1) { left: 5%; top: 15%; animation-delay: 0s; }
+        .magic-app-segment .sparkle:nth-child(2) { left: 25%; top: 8%; animation-delay: 0.5s; }
+        .magic-app-segment .sparkle:nth-child(3) { left: 45%; top: 20%; animation-delay: 1s; }
+        .magic-app-segment .sparkle:nth-child(4) { left: 65%; top: 12%; animation-delay: 1.5s; }
+        .magic-app-segment .sparkle:nth-child(5) { left: 85%; top: 18%; animation-delay: 2s; }
+        .magic-app-segment .sparkle:nth-child(6) { left: 15%; top: 45%; animation-delay: 0.3s; }
+        .magic-app-segment .sparkle:nth-child(7) { left: 75%; top: 50%; animation-delay: 1.2s; }
+        .magic-app-segment .sparkle:nth-child(8) { left: 50%; top: 75%; animation-delay: 0.8s; }
+
+        .magic-team-card {
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
+        .magic-team-card:nth-child(1) { animation-delay: 0.05s; }
+        .magic-team-card:nth-child(2) { animation-delay: 0.1s; }
+        .magic-team-card:nth-child(3) { animation-delay: 0.15s; }
+        .magic-team-card:nth-child(4) { animation-delay: 0.2s; }
+        .magic-team-card:nth-child(5) { animation-delay: 0.25s; }
+        .magic-team-card:nth-child(6) { animation-delay: 0.3s; }
+        .magic-team-card:nth-child(7) { animation-delay: 0.35s; }
+        .magic-team-card:nth-child(8) { animation-delay: 0.4s; }
+        .magic-team-card:nth-child(9) { animation-delay: 0.45s; }
+        .magic-team-card:nth-child(n+10) { animation-delay: 0.5s; }
+
+        .magic-initiative {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .magic-initiative:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 12px rgba(130, 10, 209, 0.15);
+        }
+        .magic-initiative::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border: 1px solid var(--nu-purple);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .magic-initiative:hover::before { opacity: 0.8; }
+        .magic-initiative { position: relative; padding-left: 28px; }
+        .magic-initiative .initiative-name { flex: 1; }
+
+        .insight-card, .lane-card, .synergy-card, .funfact-card, .pattern-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .insight-card:hover, .lane-card:hover { transform: translateY(-2px); }
+        .synergy-card:hover, .funfact-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .pattern-card:hover { transform: translateX(4px); }
+    </style>
 </head>
 <body>
-    <div class="app">
+    <div id="passwordGate">
+        <div class="gate-box">
+            <h2>Design Roadmap H1/26</h2>
+            <p>Enter the password to view.</p>
+            <input type="password" id="gatePassword" placeholder="Password" autocomplete="off" />
+            <button type="button" id="gateSubmit">Enter</button>
+            <div class="gate-error" id="gateError"></div>
+        </div>
+    </div>
+    <div class="app" id="mainApp">
+        <div class="app-top-badge">Selo. feito com Glean + Cursor!</div>
+        <div class="app-body">
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="nu">nu</div>
@@ -1175,11 +1411,11 @@
             <div class="team-pills-strip" id="teamPillsStrip"></div>
 
             <div class="pattern-callout">
-                <span class="pattern-emoji">✨</span>
+                <span class="pattern-emoji pattern-icon-goals">◆</span>
                 <p class="pattern-text"><strong>Goals (from Show & Tell):</strong> Improve workflow and team effectiveness, strengthen the Design community, and operationalize forward-looking strategy so the work is constructive for the whole org.</p>
             </div>
             <div class="pattern-callout" style="margin-top: -8px; margin-bottom: 20px;">
-                <span class="pattern-emoji">🔗</span>
+                <span class="pattern-emoji pattern-icon-link">↳</span>
                 <p class="pattern-text"><strong>Pattern:</strong> Magic App is the shared horizon—widgets, dashboards, global readiness, NuDS V2→V3. Most roadmaps connect to it. Synergy with Markets, CC, Lending, and Core Design.</p>
             </div>
 
@@ -1238,7 +1474,7 @@
 
             <div class="grid-2">
                 <div class="panel">
-                    <h3>Design connections & overlaps 🎯</h3>
+                    <h3>Design connections & overlaps</h3>
                     <div class="tag-list">
                         <span class="tag cross-cutting">Magic App</span>
                         <span class="tag cross-cutting">NuDS V2→V3</span>
@@ -1267,6 +1503,9 @@
             </div>
 
             <section class="magic-app-segment" id="magicAppSegment">
+                <div class="sparkle-layer" aria-hidden="true">
+                    <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+                </div>
                 <h2 class="segment-title">Initiatives → Magic App · by team</h2>
                 <p class="segment-desc">From the Show & Tell: every roadmap connects to the Magic App. Here’s who is touching what—team by team, with the app area each initiative connects to.</p>
                 <div class="magic-app-hub-wrap">
@@ -1280,6 +1519,7 @@
                 <div class="magic-app-teams" id="magicAppTeams"></div>
             </section>
         </main>
+        </div>
     </div>
 
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
@@ -1295,6 +1535,46 @@
     </div>
 
     <script>
+        (function passwordGate() {
+            var PASS = 'design';
+            var STORAGE_KEY = 'roadmap_h126_unlocked';
+            var gate = document.getElementById('passwordGate');
+            var app = document.getElementById('mainApp');
+            var input = document.getElementById('gatePassword');
+            var submit = document.getElementById('gateSubmit');
+            var err = document.getElementById('gateError');
+
+            function unlock() {
+                try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+                gate.classList.add('hidden');
+                app.style.display = '';
+                requestAnimationFrame(function() {
+                    ['.lanes-segment', '.grid-2', '.synergies-segment', '.funfacts-segment', '.patterns-segment', '.magic-app-segment'].forEach(function(sel, i) {
+                        var el = document.querySelector(sel);
+                        if (el) el.classList.add('animate-in');
+                    });
+                });
+            }
+
+            if (sessionStorage.getItem(STORAGE_KEY) === '1') {
+                unlock();
+                return;
+            }
+            app.style.display = 'none';
+
+            function check() {
+                var val = (input.value || '').trim().toLowerCase();
+                err.textContent = '';
+                if (val === PASS) {
+                    unlock();
+                } else {
+                    err.textContent = val ? 'Wrong password.' : 'Enter the password.';
+                }
+            }
+            submit.addEventListener('click', check);
+            input.addEventListener('keydown', function (e) { if (e.key === 'Enter') check(); });
+        })();
+
         const ROADMAPS = [
             {
                 id: 'gba',
@@ -1752,23 +2032,65 @@
                 ]
             },
             {
-                id: 'prometheus-crypto',
-                name: 'Prometheus + Crypto',
+                id: 'prometheus',
+                name: 'Prometheus',
                 meta: 'New · Session 2',
-                badge: 'Prometheus',
+                badge: 'Prom',
                 session: 2,
                 people: ['@andre.mooij'],
-                vibe: 'Crypto and Prometheus roadmap. Design for new product surface.',
-                metric: '—',
-                metricLabel: 'Session 2',
-                focus: 'Prometheus and Crypto initiatives (see deck).',
-                mainBets: ['Prometheus roadmap', 'Crypto experiences'],
-                deliverables: ['Crypto/Prometheus initiatives'],
-                timeline: { 'Jan 2026': ['NuDS & Magic KR'], 'Feb 2026': ['Magic-compliant components'], 'Mar 2026': ['Session 2 prep'], 'Apr 2026': ['100% Magic screens'], 'May 2026': ['MCA discovery'], 'Jun 2026': ['H1 wrap'] },
-                similarities: ['Magic App'],
+                vibe: 'Global platform migration and launch readiness. Scalable, resilient platforms for exponential global demand. Three-phase launch path: Beta (Dec/25), External test (Jan/26), Go Live (Feb/26).',
+                metric: 'OKRs 2025/H2',
+                metricLabel: 'Platform, stability, 20 countries',
+                focus: 'Platform: migrate to Global Platform without losing reliability. Finalize critical global platform integrations for Prometheus launch; run tests per roadmap. North Star: Launch Nu in 20 countries (at least 1 customer), stretch 40.',
+                objectives: [
+                    { title: 'Ensure readiness to serve external customers globally', items: ['Build end-to-end customer onboarding flow for multi-country rollout.', 'Deliver product flows for Remittances, Multi-currency Account, and Crypto Trading.'] },
+                    { title: 'Legal & compliance for global Multi-Geo expansion', items: ['Build defensible, audit-ready, scalable compliance and operational framework.', 'Legal/licensing roadmap: VQF Switzerland, Gibraltar phase 1, Argentina VASP, CASP/EEA bank licenses.'] },
+                    { title: 'Prometheus platforms scalable and resilient', items: ['Finalize all critical global platform integrations required for Prometheus launch.', 'Successfully conduct tests according to roadmap.'] },
+                    { title: 'Transform CX and ops through AI and blockchain', items: ['Deliver global multi-language marketing and service (app + CX).', 'Deliver systems and treasury to support multi-geo financial flows.', '80% team adoption and usage of AI tools.'] }
+                ],
+                mainBets: [
+                    'North Star: Launch Nu in 20 countries (stretch 40)',
+                    'Platform: App Excellence / Customer Experience Index 1.46→1.92; Stability Index 2.0→4.0 (stretch 5.0)',
+                    'Beta Dec/25 (Nubankers + F&F), External Jan/26, Go Live Feb/26',
+                    '100k releases by end of H1'
+                ],
+                deliverables: ['Global platform integrations', 'Multi-country onboarding', 'Launch roadmap tests', 'Multi-geo treasury & systems'],
+                timeline: { 'Jan 2026': ['External test', 'Platform integrations'], 'Feb 2026': ['Go Live readiness'], 'Mar 2026': ['Scale'], 'Apr 2026': ['100% Magic screens'], 'May 2026': [], 'Jun 2026': ['100k releases'] },
+                similarities: ['Magic App', 'NuDS', 'Global readiness'],
                 magicAppInitiatives: [
-                    { name: 'Crypto experiences', appZone: 'Experience' },
-                    { name: 'Prometheus integration', appZone: 'Discovery & nav' }
+                    { name: 'Remittances, MCA, Crypto Trading flows', appZone: 'Transfers' },
+                    { name: 'Multi-country onboarding', appZone: 'Experience' },
+                    { name: 'Prometheus integration & launch', appZone: 'Discovery & nav' }
+                ]
+            },
+            {
+                id: 'crypto',
+                name: 'Crypto',
+                meta: 'New · Session 2',
+                badge: 'Crypto',
+                session: 2,
+                people: ['@andre.mooij'],
+                vibe: 'Crypto product and mass affluent satisfaction. Customer love, market share, feature parity, and operational efficiency with clear baseline→target→stretch metrics.',
+                metric: 'OKRs 2025-H2',
+                metricLabel: 'Crypto Dolphins NPS, market share, efficiency',
+                focus: 'North Star: Nail satisfaction of mass affluent customers. Crypto Dolphins NPS 22.5→60 (stretch 70). Customer love: market share, feature parity (Limit Orders, Staking, NuPro, PJ, Bundles), Net New Money, % Engaged Dolphins. Efficiency: Cost to Trade, AI tools, AI Customer Sentiment.',
+                objectives: [
+                    { title: 'North Star — Nail satisfaction of mass affluent customers', items: ['Crypto Dolphins NPS: Baseline 22.5 → Target 60.0 → Stretch 70.0'] },
+                    { title: 'Customer love — Journey, satisfaction, retention', items: ['Market Share: 10% → 20% (stretch 25%).', 'Feature parity on top missing features (Limit Orders, Staking, NuPro, PJ, Bundles): 0 → 3 (stretch 5).', 'Net New Money in semester: R$100M → R$500M (stretch R$750M).', '% Engaged Dolphins over Dolphin TAM: 16.8% → 25%.'] },
+                    { title: 'Efficiency — Platform cost and productivity', items: ['Cost to Trade: 12 bps → 6 bps.', 'Utilization of AI tools: 70% → 85%.', 'Implement 1 AI-based Customer Sentiment Report.'] }
+                ],
+                mainBets: [
+                    'Crypto Dolphins NPS 22.5 → 60 (stretch 70)',
+                    'Market share 10% → 20%; feature parity 3 (stretch 5)',
+                    'Net New Money R$500M (stretch R$750M); Engaged Dolphins 25%',
+                    'Cost to Trade 6 bps; AI tools 85%; 1 AI Sentiment Report'
+                ],
+                deliverables: ['Crypto product flows & experience', 'Crypto Trading UX', 'Feature parity roadmap', 'Efficiency & AI adoption'],
+                timeline: { 'Jan 2026': [], 'Feb 2026': [], 'Mar 2026': [], 'Apr 2026': ['Crypto flows'], 'May 2026': [], 'Jun 2026': [] },
+                similarities: ['Magic App', 'Experience'],
+                magicAppInitiatives: [
+                    { name: 'Crypto Trading product flows and experience', appZone: 'Experience' },
+                    { name: 'Crypto Dolphins satisfaction & engagement', appZone: 'Home & widgets' }
                 ]
             }
         ];
@@ -1778,12 +2100,12 @@
         const PERIODS = ['Jan 2026', 'Feb 2026', 'Mar 2026', 'Apr 2026', 'May 2026', 'Jun 2026'];
 
         const LANES = [
-            { num: 1, title: 'Magic App & Navigation Platform', what: ['Global navigation & common spaces: Top Bar, Nav Bar, Menu, Profile, notifications, settings, offers.', 'Magic App MVPs: BR Roxinho MVP (1M customers) — new home, menu, tabs (Credit, Advantages), Lila hub, Magic visuals.', 'Magic App first/second layers for Lending, DR, GBA, PJ, etc.', 'NuDS V3 (Magic) & migration from V2: 1st-level nav; 2nd+ patterns; product dashboard templates; cross-sell; wizards.', 'Worldwide Login & identity: one login infra for multiple account types and countries, context and country switch inside Magic nav.'], who: 'Core Design, NuDS, Shared App / NuCore BR, Fraud, Markets/segments (HI/SuCo/U18, PJ, NuCel) plugging into common structures.' },
-            { num: 2, title: 'Global Money & Account Experience (GBA + TOUT + Account)', what: ['Money In platform: Global Amount/Review/Success/Notifications for deposits, salary.', 'Money Out / TOUT: Pix → Global Transfer Hub (BR/MX/CO); Nu2Nu in US; Pix with CC contextual offers; regulatory work.', 'Account & Money Boxes: New GBA dashboard (Spending/Savings), BR 2% experiment, MB goal-setting revamp, feed revamp; then Magic App version.', 'Cash Out & Salary: Cash out in Colombia (Punto Red, D1). Global salary portability (first in MX).'], who: 'GBA Design (Bring Money, Send Money/TOUT, MB & Account, Factory). Fraud (Modo Rua, Bre-b contestation, MED 2.0). Markets (BR/MX/CO/US/Troy) consuming global flows.' },
-            { num: 3, title: 'Global Credit & Debt Ecosystem (CC + Lending + DR + NuScore)', what: ['Global Credit Card: ABCard, Credit Builder, CC dashboards, Bill Pay, Limit Management, Pix financing with AI, PJ CC, NuScore (monthly report, recommendations, external debt, OF data).', 'Global Lending: unsecured PL, secured & payroll, PJ, new markets, CPX. Shared entry-points, credit profile, rewards, private-banker-style guidance.', 'Debt Resolution: global DR platform (22+ products), Magic DR hire flow, Navi, Nuflex, entity platform for US, Magic lateness homepage.', 'NuScore: metrics, recommendations V2, open finance behaviors, debt reneg V2, monthly report.'], who: 'Global CC, Global Lending, Global Debt Resolution, NuScore, PJ Lending, New Markets squads.' },
-            { num: 4, title: 'AI-First Guidance & Private Banker', what: ['AIPB surfaces: PB hub on home; alerts & insights widgets; integration into Magic home bar.', 'Pix with AI: Pix agent and AI-enhanced Pix flows (e.g. routing to regular Pix financing).', 'FinOrg & Insights: AI-driven financial organization (graphs, forecasts, health indicators).', 'Credit Advisor & Debt Manager: conversational credit and debt experiences anchored in PB/AIPB.', 'Scam Detection AI Agent (Fraud): Scaminator on transaction delays and warnings.'], who: 'AI Core/AIPB, GBA (FinOrg, Payment Assistant), Lending & DR (credit advisor, debt guidance), Fraud (AI scam agent).' },
-            { num: 5, title: 'App Quality, Consistency, Research & Design Ops', what: ['App Excellence program: performance, error rate, NuDS adoption, UXSat; dashboards for critical journeys.', 'NuDS, Magic Guidelines, UX Global Metric.', 'Global research agendas: GBA Research 2026 (Money In, MB, TOUT, Assistant, Troy); PJ Research 2026 (segments, charging, brand); Affluent, PJ and CX research.'], who: 'Design Core & NuDS, GBA Research, PJ Research, Affluent/CX Research, App Excellence/Growth Platforms.' },
-            { num: 6, title: 'Ecosystem & Loyalty', what: ['Digital Ecosystem Shared App: home narrative, cross-sell areas, Advantages tab, Credit tab.', 'Insurance: app-quality, FinPro, Pix Protegido, delighters, Magic Insurance Hub.', 'NuPay: online checkout, wallet (Pix by tap, card tokenization, PJ as funding), NuPay purchase protection.', 'NuCoin: loyalty mechanics, games, discounts, integration with Credit (Pix, PL, CC), Open Finance, Mass Market.', 'NuCel: telco strategy, free trial, special offers, Magic widgets in the future.'], who: 'Shared App, Insurance, NuPay, NuCoin, NuCel, Ads & Rewards.' }
+            { num: 1, title: 'Magic App & Navigation Platform', what: ['Global navigation & common spaces: Top Bar, Nav Bar, Menu, Profile, notifications, settings, offers.', 'Magic App MVPs: BR Roxinho MVP (1M customers) — new home, menu, tabs (Credit, Advantages), Lila hub, Magic visuals.', 'Magic App first/second layers for Lending, DR, GBA, PJ, etc.', 'NuDS V3 (Magic) & migration from V2: 1st-level nav; 2nd+ patterns; product dashboard templates; cross-sell; wizards.', 'Worldwide Login & identity: one login infra for multiple account types and countries, context and country switch inside Magic nav.'], who: 'Core Design, NuDS, Shared App / NuCore BR, Fraud, Markets/segments (HI/SuCo/U18, PJ, NuCel) plugging into common structures.', whoIds: ['core-design', 'nuds', 'nucore-brazil', 'fraud', 'pj-brazil', 'nucel', 'gba', 'mexico', 'colombia', 'troy'] },
+            { num: 2, title: 'Global Money & Account Experience (GBA + TOUT + Account)', what: ['Money In platform: Global Amount/Review/Success/Notifications for deposits, salary.', 'Money Out / TOUT: Pix → Global Transfer Hub (BR/MX/CO); Nu2Nu in US; Pix with CC contextual offers; regulatory work.', 'Account & Money Boxes: New GBA dashboard (Spending/Savings), BR 2% experiment, MB goal-setting revamp, feed revamp; then Magic App version.', 'Cash Out & Salary: Cash out in Colombia (Punto Red, D1). Global salary portability (first in MX).'], who: 'GBA Design (Bring Money, Send Money/TOUT, MB & Account, Factory). Fraud (Modo Rua, Bre-b contestation, MED 2.0). Markets (BR/MX/CO/US/Troy) consuming global flows.', whoIds: ['gba', 'fraud', 'mexico', 'colombia', 'troy'] },
+            { num: 3, title: 'Global Credit & Debt Ecosystem (CC + Lending + DR + NuScore)', what: ['Global Credit Card: ABCard, Credit Builder, CC dashboards, Bill Pay, Limit Management, Pix financing with AI, PJ CC, NuScore (monthly report, recommendations, external debt, OF data).', 'Global Lending: unsecured PL, secured & payroll, PJ, new markets, CPX. Shared entry-points, credit profile, rewards, private-banker-style guidance.', 'Debt Resolution: global DR platform (22+ products), Magic DR hire flow, Navi, Nuflex, entity platform for US, Magic lateness homepage.', 'NuScore: metrics, recommendations V2, open finance behaviors, debt reneg V2, monthly report.'], who: 'Global CC, Global Lending, Global Debt Resolution, NuScore, PJ Lending, New Markets squads.', whoIds: ['global-cc', 'global-lending', 'debt-resolution', 'pj-brazil', 'mexico', 'colombia'] },
+            { num: 4, title: 'AI-First Guidance & Private Banker', what: ['AIPB surfaces: PB hub on home; alerts & insights widgets; integration into Magic home bar.', 'Pix with AI: Pix agent and AI-enhanced Pix flows (e.g. routing to regular Pix financing).', 'FinOrg & Insights: AI-driven financial organization (graphs, forecasts, health indicators).', 'Credit Advisor & Debt Manager: conversational credit and debt experiences anchored in PB/AIPB.', 'Scam Detection AI Agent (Fraud): Scaminator on transaction delays and warnings.'], who: 'AI Core/AIPB, GBA (FinOrg, Payment Assistant), Lending & DR (credit advisor, debt guidance), Fraud (AI scam agent).', whoIds: ['ai-core', 'gba', 'global-lending', 'debt-resolution', 'fraud'] },
+            { num: 5, title: 'App Quality, Consistency, Research & Design Ops', what: ['App Excellence program: performance, error rate, NuDS adoption, UXSat; dashboards for critical journeys.', 'NuDS, Magic Guidelines, UX Global Metric.', 'Global research agendas: GBA Research 2026 (Money In, MB, TOUT, Assistant, Troy); PJ Research 2026 (segments, charging, brand); Affluent, PJ and CX research.'], who: 'Design Core & NuDS, GBA Research, PJ Research, Affluent/CX Research, App Excellence/Growth Platforms.', whoIds: ['core-design', 'nuds', 'gba', 'pj-brazil'] },
+            { num: 6, title: 'Ecosystem & Loyalty', what: ['Digital Ecosystem Shared App: home narrative, cross-sell areas, Advantages tab, Credit tab.', 'Insurance: app-quality, FinPro, Pix Protegido, delighters, Magic Insurance Hub.', 'NuPay: online checkout, wallet (Pix by tap, card tokenization, PJ as funding), NuPay purchase protection.', 'NuCoin: loyalty mechanics, games, discounts, integration with Credit (Pix, PL, CC), Open Finance, Mass Market.', 'NuCel: telco strategy, free trial, special offers, Magic widgets in the future.'], who: 'Shared App, Insurance, NuPay, NuCoin, NuCel, Ads & Rewards.', whoIds: ['nucore-brazil', 'global-insurance', 'digital-ecosystem', 'nucel', 'ads-rewards', 'prometheus', 'crypto'] }
         ];
 
         const SYNERGIES = [
@@ -1796,13 +2118,13 @@
         ];
 
         const FUN_FACTS = [
-            { num: 1, icon: '⚙️', headline: 'Design has its own “platform OKRs” like an infra team', body: 'Design Core + NuDS have explicit OKRs like “Define design for Magic App 1st Level Navigation for all markets” and “Reach 100% of Magic-App-compliant components in Troy & Prometheus” – they’re treated like infra products, not just visuals.' },
-            { num: 2, icon: '📋', headline: 'Research is roadmapped almost like a product BU', body: 'GBA Research alone has 9 synergy research groups, 100+ planned projects, and 50+ monitoring streams laid out as a timeline. PJ has a dedicated “PJ Brazil Research Team” slide and a 2026 research agenda fully tied to segment and marketing strategy.' },
-            { num: 3, icon: '✨', headline: 'There is an explicit design OKR that’s literally “Design the Magic App”', body: 'Design Core’s OKRs talk about “the world’s most loved financial app (Magic App)” and call out specific nav layers, components and even a “UX Global Metric” as key results.' },
-            { num: 4, icon: '📊', headline: 'App quality and NuDS adoption are tracked as hard numbers', body: 'BR Shared App has a KR to raise App Excellence score from 2.93 to 3.39 and increase NuDS adoption from 88.53% to 91.5%, plus a KR to ship an app-quality dashboard for critical journeys.' },
-            { num: 5, icon: '🎬', headline: 'CC design principles: “Don’t ship the org” and “micro-animations are required”', body: 'Global CC’s principles say “Don’t ship the org” and that micro-animations are a requirement, not a nice-to-have – explicitly putting motion and org-abstraction into the design doctrine.' },
-            { num: 6, icon: '🤖', headline: 'AI design already runs at massive scale', body: 'AIPB slides talk about ~15.9M monthly engaged users for Private Banker, ~10M for Pix with AI, and millions for FinOrg – all with UXSat targets. Design is working on AI surfaces already at “Nu-scale.”' },
-            { num: 7, icon: '🎯', headline: 'Debt Resolution has a design-only KR', body: 'DR OKRs include: “Design 100% of the P0 Magic App use cases” as a top-level KR, alongside cure rates and risk ratings. Design work is literally a key result in the business OKR tree.' }
+            { num: 1, icon: '◆', headline: 'Design has its own “platform OKRs” like an infra team', body: 'Design Core + NuDS have explicit OKRs like “Define design for Magic App 1st Level Navigation for all markets” and “Reach 100% of Magic-App-compliant components in Troy & Prometheus” – they’re treated like infra products, not just visuals.' },
+            { num: 2, icon: '▢', headline: 'Research is roadmapped almost like a product BU', body: 'GBA Research alone has 9 synergy research groups, 100+ planned projects, and 50+ monitoring streams laid out as a timeline. PJ has a dedicated “PJ Brazil Research Team” slide and a 2026 research agenda fully tied to segment and marketing strategy.' },
+            { num: 3, icon: '◇', headline: 'There is an explicit design OKR that’s literally “Design the Magic App”', body: 'Design Core’s OKRs talk about “the world’s most loved financial app (Magic App)” and call out specific nav layers, components and even a “UX Global Metric” as key results.' },
+            { num: 4, icon: '□', headline: 'App quality and NuDS adoption are tracked as hard numbers', body: 'BR Shared App has a KR to raise App Excellence score from 2.93 to 3.39 and increase NuDS adoption from 88.53% to 91.5%, plus a KR to ship an app-quality dashboard for critical journeys.' },
+            { num: 5, icon: '△', headline: 'CC design principles: “Don’t ship the org” and “micro-animations are required”', body: 'Global CC’s principles say “Don’t ship the org” and that micro-animations are a requirement, not a nice-to-have – explicitly putting motion and org-abstraction into the design doctrine.' },
+            { num: 6, icon: '◦', headline: 'AI design already runs at massive scale', body: 'AIPB slides talk about ~15.9M monthly engaged users for Private Banker, ~10M for Pix with AI, and millions for FinOrg – all with UXSat targets. Design is working on AI surfaces already at “Nu-scale.”' },
+            { num: 7, icon: '•', headline: 'Debt Resolution has a design-only KR', body: 'DR OKRs include: “Design 100% of the P0 Magic App use cases” as a top-level KR, alongside cure rates and risk ratings. Design work is literally a key result in the business OKR tree.' }
         ];
 
         const PATTERNS = [
@@ -1850,8 +2172,15 @@
         function renderLanes() {
             const el = document.getElementById('lanesGrid');
             if (!el) return;
+            const idToRoadmap = {};
+            ROADMAPS.forEach(r => { idToRoadmap[r.id] = r; });
             el.innerHTML = LANES.map(lane => {
                 const whatHtml = (lane.what || []).map(w => `<li>${w}</li>`).join('');
+                const whoPills = (lane.whoIds || []).map(id => {
+                    const r = idToRoadmap[id];
+                    if (!r) return '';
+                    return `<button type="button" class="lane-team-pill" data-id="${r.id}"><span class="pill-dot"></span>${r.name}</button>`;
+                }).join('');
                 return `
                     <div class="lane-card">
                         <div class="lane-num">Lane ${lane.num}</div>
@@ -1862,11 +2191,14 @@
                         </div>
                         <div class="lane-block">
                             <div class="lane-block-label">Who’s here</div>
-                            <div class="lane-who">${lane.who || ''}</div>
+                            <div class="lane-who-pills">${whoPills}</div>
                         </div>
                     </div>
                 `;
             }).join('');
+            el.querySelectorAll('.lane-team-pill').forEach(btn => {
+                btn.addEventListener('click', () => openDrawer(btn.dataset.id));
+            });
         }
 
         function renderSynergies() {
